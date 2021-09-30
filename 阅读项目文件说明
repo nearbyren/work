@@ -1,0 +1,49 @@
+关键类说明：Config 用户配置信息
+
+选择支付界面有三种列表支付方式：1.银行卡列表 2.非银行列表 3.推荐列表
+activity_choose_pay_way2 确认订单与支付 共用布局
+
+
+KStationDetailActivity2 油站详情  fromSource 来自哪个入口
+
+
+
+
+扫码二维码的时候会识别账号类型
+
+
+我的界面业务
+1.车主联盟会员
+2.网约/出租车会员
+3.货车会员
+
+
+
+油站详情
+本油站不允许在油机旁使用手机 请到柜台扫描
+
+KChoosePayWayActivity2 确认订单
+KChoosePayWayActivity  支付
+
+PayEvaluateActivity  其他评价
+EvaluateSuccessActivity1
+
+扫码出现的穿了一个
+0 = "http://api.ejiayou.com/wxmp/view/wxCode.ac?qrId=15166&appId=gh_8abe738e8e98"
+1 = "2122341589"
+
+
+车队卡 支付前会效验
+
+1.
+KChooseCarTypeActivity2  认证说明与选择认证项
+
+KOnlineCarActivity       驾驶证
+KOnlineCarTwoActivity    选择认证平台[优步 首汽 神州 其它]
+KPrivateCarTwoActivity   提示已加入的认证平台
+KReviewSuccessActivity   提交审核中
+
+
+未使用的activity：
+KStationDetailActivity
+StationMapActivity
