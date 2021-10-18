@@ -1,0 +1,200 @@
+
+获取油站列表
+
+HashMap<String, String> map = new HashMap<String, String>();
+       String defaultOilId = (String) SPUtils.get(this, Constants.SELCTED_FREQUENTLY_USED_OIL_TYPE, "1");
+       String latitude = (String) SPUtils.get(this, "latitude", "");
+       String longitude = (String) SPUtils.get(this, "longitude", "");
+       map.put("oilId", defaultOilId);
+       map.put("longitude", longitude);
+       map.put("latitude", latitude);
+       //将列表数据请求在这取
+       MyOkhttpUtils.getInstance().postRequestNoTimeStampSessionKey(this, ShiftServer.RequestUrl.index_queryStationList, map, new MyOkhttpUtils.StringCallBack() {
+           @Override
+           public void onError(Exception e) {
+           }
+
+           @Override
+           public void onResponse(String response) {
+//                Gson gson = new Gson();
+               DebugLog.d("response = " + response);
+               SPUtils.put(SplashActivity.this, "test_list", response);
+//                OrderDetailBean orderDetailBean = gson.fromJson(response, OrderDetailBean.class);
+           }
+
+           @Override
+           public void onException() {
+           }
+       });
+
+
+
+
+
+
+
+       public void testR() {
+
+
+           HashMap<String, String> map = new HashMap<String, String>();
+           String defaultOilId = (String) SPUtils.get(this, Constants.SELCTED_FREQUENTLY_USED_OIL_TYPE, "1");
+           String latitude = (String) SPUtils.get(this, "latitude", "");
+           String longitude = (String) SPUtils.get(this, "longitude", "");
+           map.put("oilId", defaultOilId);
+           map.put("longitude", longitude);
+           map.put("latitude", latitude);
+           //将列表数据请求在这取
+           MyOkhttpUtils.getInstance().postRequestNoTimeStampSessionKey(this, ShiftServer.RequestUrl.index_queryStationList, map, new MyOkhttpUtils.StringCallBack() {
+               @Override
+               public void onError(Exception e) {
+               }
+
+               @Override
+               public void onResponse(String response) {
+                   DebugLog.d("response = " + response);
+                   SPUtils.put(LoadActivity.this, "test_list", response);
+                   Gson gson = new Gson();
+                   NewStationListBean newStationListBean = gson.fromJson(
+                           response,
+                           NewStationListBean.class
+                   );
+                   if (newStationListBean.getCode().equals("200")) {
+                       if (newStationListBean.getData() != null) {
+                           splashAdData(newStationListBean.getData().getCarType() + "");
+                       }
+                   }
+                   bannerData();
+                   oilgoldData();
+               }
+
+               @Override
+               public void onException() {
+               }
+           });
+       }
+
+
+
+
+
+
+       int netCount = 0;
+
+       private void refreshUI() {
+           netCount++;
+           if (netCount < 3) return;
+           netCount = 0;
+           judgepermissio(sessionKey);
+       }
+
+       public void bannerData() {
+           HashMap<String, String> map = new HashMap<String, String>();
+           String latitude = (String) SPUtils.get(LoadActivity.this, "latitude", "");
+           String longitude = (String) SPUtils.get(LoadActivity.this, "longitude", "");
+           map.put("longitude", longitude);
+           map.put("latitude", latitude);
+           map.put("cityName", "深圳");
+           map = RetrofitManager.INSTANCE.setMap(map);
+           MyOkhttpUtils.getInstance().postRequestNoTimeStampSessionKey(this, ShiftServer.RequestUrl.index_getIndexBanners, map, new MyOkhttpUtils.StringCallBack() {
+               @Override
+               public void onError(Exception e) {
+                   refreshUI();
+               }
+
+               @Override
+               public void onResponse(String response) {
+                   refreshUI();
+   //                Gson gson = new Gson();
+                   DebugLog.d("response = " + response);
+                   SPUtils.put(LoadActivity.this, "banner_list", response);
+   //                OrderDetailBean orderDetailBean = gson.fromJson(response, OrderDetailBean.class);
+               }
+
+               @Override
+               public void onException() {
+                   refreshUI();
+               }
+           });
+
+       }
+
+       public void splashAdData(String carType) {
+           HashMap<String, String> map = new HashMap<String, String>();
+           String latitude = (String) SPUtils.get(this, "latitude", "");
+           String longitude = (String) SPUtils.get(this, "longitude", "");
+           map.put("longitude", longitude);
+           map.put("latitude", latitude);
+           map.put("carType", carType);
+           map.put("advertTypeId", "1"); //1，开屏广告
+           map.put("cityName", "深圳");
+           map = RetrofitManager.INSTANCE.setMap(map);
+           //将列表数据请求在这取
+           MyOkhttpUtils.getInstance().postRequestNoTimeStampSessionKey(this, ShiftServer.RequestUrl.index_app_adverts, map, new MyOkhttpUtils.StringCallBack() {
+               @Override
+               public void onError(Exception e) {
+                   refreshUI();
+               }
+
+               @Override
+               public void onResponse(String response) {
+                   refreshUI();
+                   DebugLog.d("response = " + response);
+                   SPUtils.put(LoadActivity.this, "splash_list", response);
+               }
+
+               @Override
+               public void onException() {
+                   refreshUI();
+               }
+           });
+       }
+
+       public void oilgoldData() {
+           HashMap<String, String> map = new HashMap<String, String>();
+           map = RetrofitManager.INSTANCE.setMap(map);
+           //将列表数据请求在这取
+           MyOkhttpUtils.getInstance().postRequestNoTimeStampSessionKey(this, ShiftServer.RequestUrl.account_queryIndexOilgoldAccountInfo, map, new MyOkhttpUtils.StringCallBack() {
+               @Override
+               public void onError(Exception e) {
+                   refreshUI();
+               }
+
+               @Override
+               public void onResponse(String response) {
+                   refreshUI();
+                   DebugLog.d("response = " + response);
+                   SPUtils.put(LoadActivity.this, "oilgold_list", response);
+               }
+
+               @Override
+               public void onException() {
+                   refreshUI();
+               }
+           });
+       }
+
+
+
+       fun postBannerDataOb(map: HashMap<String, String>): Observable<BaseResp<HomeBannerBean.DataBean>>? {
+           val newMap = RetrofitManager.setMap(map)
+           val body = RequestBody.create(
+               MediaType.parse("application/json; charset=utf-8"),
+               Gson().toJson(newMap)
+           )
+           return mApi?.postBannerDataOb(body)
+       }
+
+       @POST(ShiftServer.RequestUrl.index_getIndexBanners)
+fun postBannerDataOb(@Body body: RequestBody): Observable<BaseResp<HomeBannerBean.DataBean>>
+
+@POST(ShiftServer.RequestUrl.index_getIndexAlerts)
+fun getHomeOperationOb(@Body body: RequestBody): Observable<BaseResp<HomeBannerBean.DataBean>>
+
+fun getHomeOperationOb(map: HashMap<String, String>): Observable<BaseResp<HomeBannerBean.DataBean>>? {
+    val newMap = RetrofitManager.setMap(map)
+    val body = RequestBody.create(
+        MediaType.parse("application/json; charset=utf-8"),
+        Gson().toJson(newMap)
+    )
+    return mApi?.getHomeOperationOb(body)
+}

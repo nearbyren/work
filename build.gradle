@@ -1,0 +1,286 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        applicationId "cn.kooki.app.chezhen"
+        versionCode 118
+        versionName "8.0.8"
+        multiDexEnabled true
+        ndk {
+            abiFilters "armeabi-v7a" , "arm64-v8a"
+        }
+        //百度OCR账号
+//        buildConfigField("String", "BAIDU_AI_AK", formatString('5gcLLtb27GskST8DoMLlQzEt'))
+//        buildConfigField("String", "BAIDU_AI_SK", formatString('PH00T60ensjuFVgECYX3hRdkKMprG72K'))
+        //腾讯直播
+        buildConfigField("String", "LICENCE_URL", formatString(
+                'http://license.vod2.myqcloud.com/license/v1/f4cdf70f5704524897ab1d6164574738/TXLiveSDK.licence'))
+        buildConfigField("String", "LICENSE_KEY", formatString('bf90fe5974d4b1f2b174e36d20c3209f'))
+        buildConfigField("int", "SDKAPPID", '1400409093')
+        //友盟
+        buildConfigField("String", "UMENG_APPKEY", formatString('58c2064ef5ade44453002575'))
+        buildConfigField("String", "UMENG_SECRET", formatString('e3ad2126a1de28ec1bcc1b4fdb65c22c'))
+        buildConfigField("String", "XIAOMI_ID", formatString('2882303761517421858'))
+        buildConfigField("String", "XIAOMI_KEY", formatString('5961742119858'))
+        buildConfigField("String", "OPPO_KEY", formatString('dthPdTe4itwsGOOcs0oS4ogK4'))
+        buildConfigField("String", "OPPO_SECRET", formatString('3a4a66a378f22721E76A20C7249CA6CA'))
+        buildConfigField("String", "MEIZU_APPID", formatString('130018'))
+        buildConfigField("String", "MEIZU_APPKEY", formatString('d3221a525c894f74bab69b218965c9dc'))
+        //新版本是否开启新功能引导,控制当前打包版本是否开启引导
+        buildConfigField("boolean", "IS_NEW_VERSION_GUIDE", 'false')
+        //人脸识别
+        buildConfigField("String", "FACE_AUTH_ACCOUNT", formatString('gTKpPf2bEQ9t'))
+        buildConfigField("String", "FACE_AUTH_PASSWORD", formatString('duhsPWobleXz'))
+        buildConfigField("String", "FACE_AUTH_SERVICEURL", formatString(
+                'https://api.easysign.cn/yunauth/api'))
+        //人脸识别测试环境
+//        buildConfigField("String", "FACE_AUTH_ACCOUNT", formatString('aEytjXDSyqiC'))
+//        buildConfigField("String", "FACE_AUTH_PASSWORD", formatString('obCU3l6Jhg14'))
+//        buildConfigField("String", "FACE_AUTH_SERVICEURL", formatString(
+//                'http://testyqt.esa2000.cn:8080/UUMS/yunauth/api'))
+        manifestPlaceholders = [
+                HUAWEI_ID: 'appid=10413091',
+                VIVO_ID  : '20485',
+                VIVO_KEY : 'a385a622-3e7d-40ef-9d0d-07debc2056b6',
+        ]
+    }
+
+    flavorDimensions("cartown")
+
+    productFlavors {
+        czcy {
+            dimension "cartown"
+            buildConfigField("String", "WEBSET_URL", formatString('https://www.chezhency.com'))
+            buildConfigField("String", "WS_WEB_SOCKET", formatString('wss://wss.chezhency.com'))
+            buildConfigField("String", "CDN_BASE_URL", formatString('https://img.chezhency.com'))
+            buildConfigField("String", "BUCKET_NAME", formatString('chezhen'))
+            buildConfigField("String", "BUGLY_APPID", formatString('900022281'))
+            applicationId "cn.kooki.app.chezhen"
+            manifestPlaceholders = [
+                    APP_NAME: '车镇车源',
+            ]
+        }
+
+        czcytest {
+            dimension "cartown"
+            buildConfigField("String", "WEBSET_URL", formatString('https://dev.chezhency.com'))
+            buildConfigField("String", "WS_WEB_SOCKET", formatString('wss://wssdev.chezhency.com'))
+            buildConfigField("String", "CDN_BASE_URL", formatString('https://cdntest.chezhency.com'))
+            buildConfigField("String", "BUCKET_NAME", formatString('test-chezhency'))
+            buildConfigField("String", "BUGLY_APPID", formatString('7c5cc2f797'))
+            buildConfigField("String", "FACE_AUTH_ACCOUNT", formatString('9GjpmrjEFftV'))
+            buildConfigField("String", "FACE_AUTH_PASSWORD", formatString('5e2xJhM67DQr'))
+            buildConfigField("String", "FACE_AUTH_SERVICEURL", formatString(
+                    'http://testyqt.esa2000.cn:38080/APIService/yunauth/api'))
+            applicationId "cn.kooki.app.chezhen"
+            manifestPlaceholders = [
+                    APP_NAME: '测试版',
+            ]
+        }
+
+        devtest {
+            dimension "cartown"
+            buildConfigField("String", "WEBSET_URL", formatString('https://dev.chezhency.com'))
+            buildConfigField("String", "WS_WEB_SOCKET", formatString('wss://wssdev.chezhency.com'))
+            buildConfigField("String", "CDN_BASE_URL", formatString('https://cdntest.chezhency.com'))
+            buildConfigField("String", "BUCKET_NAME", formatString('test-chezhency'))
+            buildConfigField("String", "BUGLY_APPID", formatString('7c5cc2f797'))
+            applicationId "com.kookic.cartown"
+            //友盟
+            buildConfigField("String", "UMENG_APPKEY", formatString('5ea0002f0cafb23f2d0001ea'))
+            buildConfigField("String", "UMENG_SECRET", formatString('9f6e7a0cc12750e98919abb3380cddd0'))
+            buildConfigField("String", "XIAOMI_ID", formatString('2882303761518374938'))
+            buildConfigField("String", "XIAOMI_KEY", formatString('5261837464938'))
+            buildConfigField("String", "OPPO_KEY", formatString('23998ae9bad14b0e83db54e73955c1f5'))
+            buildConfigField("String", "OPPO_SECRET", formatString('eb752e3516f24aad8b2abe5084aeb882'))
+            buildConfigField("String", "MEIZU_APPID", formatString('130017'))
+            buildConfigField("String", "MEIZU_APPKEY", formatString('80b60f6a97a646d19d9c555bf91d17cf'))
+            manifestPlaceholders = [
+                    APP_NAME : '推送调试版',
+                    HUAWEI_ID: 'appid=102091333',
+                    VIVO_ID  : '20485',
+                    VIVO_KEY : 'a385a622-3e7d-40ef-9d0d-07debc2056b6',
+            ]
+        }
+
+        x86test {
+            dimension "cartown"
+            buildConfigField("String", "WEBSET_URL", formatString('https://dev.chezhency.com'))
+            buildConfigField("String", "WS_WEB_SOCKET", formatString('wss://wssdev.chezhency.com'))
+            buildConfigField("String", "CDN_BASE_URL", formatString('https://cdntest.chezhency.com'))
+            buildConfigField("String", "BUCKET_NAME", formatString('test-chezhency'))
+            buildConfigField("String", "BUGLY_APPID", formatString('7c5cc2f797'))
+            applicationId "cn.kooki.app.chezhen"
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a", "x86"
+            }
+            manifestPlaceholders = [
+                    APP_NAME: '测试版',
+            ]
+        }
+    }
+
+    signingConfigs {
+        cartown {
+            storeFile file('../keystore/newcartown.jks')
+            storePassword 'zm1234'
+            keyAlias 'cartown'
+            keyPassword 'zm1234'
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.cartown
+        }
+
+        release {
+            multiDexKeepFile file("maindexlist.txt")
+            debuggable false
+            minifyEnabled true   //混淆
+            shrinkResources true  //资源压缩
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.cartown
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            java {
+                exclude '**/AndroidNotification.java'
+                exclude '**/AndroidUnicast.java'
+                exclude '**/DebugNotification.java'
+                exclude '**/UmengNotification.java'
+            }
+        }
+
+        x86test.jniLibs.srcDirs = ['libs_x86']
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    //人脸识别配置
+    useLibrary 'org.apache.http.legacy'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //腾讯直播配置
+    packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        doNotStrip "*/armeabi/libYTCommon.so"
+        doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        doNotStrip "*/x86/libYTCommon.so"
+        doNotStrip "*/arm64-v8a/libYTCommon.so"
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar', "*.aar"], dir: 'libs/face_auth_libs')
+    implementation project(':videolib')
+    implementation project(':ocr_lib')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'cn.qqtheme.framework:WheelPicker:1.5.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup:otto:1.3.8'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+    implementation 'in.srain.cube:ultra-ptr:1.0.11'
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'com.lzp:FlycoTabLayoutZ:1.3.3'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-16'
+    implementation ('com.github.LuckSiege.PictureSelector:picture_library:v2.6.1'){
+        exclude group: 'androidx.recyclerview'
+    }
+    implementation 'io.github.meetsl:SCardView:1.2'
+    implementation 'com.permissionx.guolindev:permissionx:1.4.0'
+    //Bugly sdk
+    implementation 'com.tencent.bugly:nativecrashreport:3.9.0'
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.5.23'
+    implementation 'com.tencent.tinker:tinker-android-lib:1.9.14.15'
+    // Maven local cannot handle transist dependencies.
+    implementation 'com.tencent.tinker:tinker-android-loader:1.9.14.15'
+    implementation 'com.tencent.tinker:tinker-android-anno-support:1.9.14.15'
+
+    //友盟sdk
+    //PushSDK必须依赖基础组件库，所以需要加入对应依赖
+    implementation 'com.umeng.umsdk:common:9.4.0'
+    //PushSDK必须依赖utdid库，所以需要加入对应依赖
+    implementation 'com.umeng.umsdk:utdid:1.5.2.1'
+    implementation 'com.umeng.umsdk:asms:1.2.3'
+    //PushSDK
+    implementation 'com.umeng.umsdk:push:6.3.3'
+    //小米Push通道
+    implementation 'com.umeng.umsdk:xiaomi-push:4.0.2'
+    implementation 'com.umeng.umsdk:xiaomi-umengaccs:1.2.4'
+    //华为Push通道
+    implementation 'com.huawei.hms:push:5.3.0.301'
+    implementation 'com.umeng.umsdk:huawei-umengaccs:1.3.4'
+    //Oppo Push通道
+    implementation 'com.umeng.umsdk:oppo-push:2.1.0'
+    implementation 'com.umeng.umsdk:oppo-umengaccs:1.0.7-fix'
+    //魅族Push通道
+    implementation 'com.umeng.umsdk:meizu-push:4.0.7'
+    implementation 'com.umeng.umsdk:meizu-umengaccs:1.1.4'
+    //测试应用审核不通过,推送测试版本无法离线推送,正式环境不受影响
+    //vivo Push通道
+    implementation 'com.umeng.umsdk:vivo-push:3.0.0'
+    implementation 'com.umeng.umsdk:vivo-umengaccs:1.1.4'
+    //友盟社会化分享
+    implementation 'com.umeng.umsdk:share-core:7.1.5'
+    implementation 'com.umeng.umsdk:share-wx:7.1.5'
+    implementation  'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.0'//微信官方SDK依赖库
+    //友盟网络基础组件
+    implementation 'com.umeng.umsdk:alicloud-httpdns:1.3.2.3'
+    implementation 'com.umeng.umsdk:alicloud-utils:2.0.0'
+    implementation 'com.umeng.umsdk:alicloud_beacon:1.0.5'
+    implementation 'com.umeng.umsdk:agoo-accs:3.4.2.7'
+    implementation 'com.umeng.umsdk:agoo_aranger:1.0.6'
+    implementation 'com.umeng.umsdk:agoo_networksdk:3.5.8'
+    implementation 'com.umeng.umsdk:agoo_tnet4android:3.1.14.10'
+    //腾讯云直播
+    implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:7.7.9457'
+    //Oss对象存储
+    implementation 'com.aliyun.dpa:oss-android-sdk:2.9.5'
+
+
+}
+
+static def formatString(String value) {
+    return '\"' + value + '\"'
+}
+
+// 依赖插件脚本
+apply from: 'tinker-support.gradle'
+

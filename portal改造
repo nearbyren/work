@@ -1,0 +1,68 @@
+
+/v1/
+
+portal改造 遇到问题
+
+查找不到的接口
+https://dev.ejiayou.com/gateway/ejy-portal-service/app/index/app/adverts
+https://dev.ejiayou.com/gateway/ejy-portal-service/app/order/build/
+
+RecodeUserInfoBroadcastReceiver  56行涉及请求变更
+
+HuaWeiPushHmsMessageService  36行涉及请求变更
+
+变更请求方式的
+"/app/order/build/{sessionKey}/{timestamp}";
+app/comment/getEvaluateInfo           /v1/comment/getEvaluateInfo_v3.do
+app/station/get/stationEvaluateList   /v1/evaluate/evaluateStickyListV2.do
+/app/myPage/getFavoriteStationList   /v1/favorite/stationlist
+app/myPage/getMyMessageApp         /v1/message/queryPersonalMessage.do
+/app/eapi/queryAds                /eapi/v2/app/mine/ad_v_632
+/app/eapi/queryEPlusAds           /eapi/v1/activity/eplus/get_eplus_ad
+/app/userManage/userInvoice        /v1/userInvoice/userInvoiceOper.do
+/app/station/station/stationList    /v1/station/stationListV6.do
+/app/myPage/getUserInfoApp/      /oreo/rs/user/account/identity/v5/
+app/station/station/stationList  /v1/station/stationListV6.do
+/app/eapi/otherInterests       /eapi/v2/app/other_interests/index   接口报错
+
+https://dev.ejiayou.com/gateway/ejy-portal-service/app/myPage/getUserInfoApp/   此处有问题
+
+
+
+
+ StationListPresenter   96行处需要想办法优化
+
+ 如果首页某个接口报错会影响滑动效果，卡住
+
+https://dev.ejiayou.com/eapi/v2/app/other_interests/ycpd/store_list?t=1633762405355
+
+
+无法查找的接口
+
+
+/v1/adConversion/byteDance/callBack
+/v1/station/stationGrade.do
+/oreo/rs/order/create/v2/
+/oreo/rs/payment/type/v4/
+/oreo/get_order_pay_status/v1/
+/eapi/v1/app/pay_over_ad/inline
+/oreo/rs/uploadIdCard/v1/
+/oreo/rs/map/station/list/v1/
+/v1/message/noticeEY.do
+/v1/station/payErrorStation.do
+/oreo/fastAudit/order/create/v1/
+/eapi/v1/app/station/coupons
+/eapi/v1/app/station/receiveCoupon
+/v1/appRaise/getAppUpgradeUrl.do
+/v1/brandNewStation/stationList/mercury
+/oreo/rs/quick_fueling/v1/{sessionKey}/{timeMillis}
+/oreo/user/collect/state/v1/{sessionKey}/{timeMillis}
+/oreo/scanCode/oilPriceInfo/v1/{sessionKey}/{timeMillis}
+/oreo/rs/payment/type/v4/{sessionKey}/{timeMillis}
+/oreo/payment/options/v1/{sessionKey}/{timeMillis}
+/v1/station/guide
+/oreo/user/register/status/v1/{sessionKey}/{timeMillis}
+/oreo/scanCode/oilGunInfo/venus/{sessionKey}/{timeMillis}
+/oreo/scanCode/oilGunInfo/v1/
+/oreo/rs/loginGetSession/v1/
+/v1/station/detail

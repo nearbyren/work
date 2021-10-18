@@ -4,7 +4,7 @@
 activity_choose_pay_way2 确认订单与支付 共用布局
 
 
-KStationDetailActivity2 油站详情  fromSource 来自哪个入口
+
 
 
 
@@ -17,17 +17,6 @@ KStationDetailActivity2 油站详情  fromSource 来自哪个入口
 2.网约/出租车会员
 3.货车会员
 
-
-
-油站详情
-本油站不允许在油机旁使用手机 请到柜台扫描
-
-KChoosePayWayActivity2 确认订单
-KChoosePayWayActivity  支付
-
-PayEvaluateActivity  其他评价
-EvaluateSuccessActivity1
-
 扫码出现的穿了一个
 0 = "http://api.ejiayou.com/wxmp/view/wxCode.ac?qrId=15166&appId=gh_8abe738e8e98"
 1 = "2122341589"
@@ -35,15 +24,65 @@ EvaluateSuccessActivity1
 
 车队卡 支付前会效验
 
-1.
-KChooseCarTypeActivity2  认证说明与选择认证项
 
+
+油站详情
+本油站不允许在油机旁使用手机 请到柜台扫描
+
+KMainActivity             主界面
+StationFragment2          首页
+KStationFragment          tab主页
+KHomeTabFragment          tab邀请与加油日
+HomeMidFragment           车主权益
+
+MyFragment                我的
+KotlinAboutActivity       关于
+KLoginActivity            登录
+KtSettingActivity         设置
+ChangeNickNameActivity    修改昵称
+KChoosePayWayActivity2    确认订单
+KChoosePayWayActivity     支付
+PayEvaluateActivity       其他评价
+EvaluateSuccessActivity1  评价成功
+KFavoritesListActivity   收藏油站
+KStationDetailActivity2  油站详情      fromSource 来自哪个入口
+QualifyCenterActivity    个人认证
 KOnlineCarActivity       驾驶证
 KOnlineCarTwoActivity    选择认证平台[优步 首汽 神州 其它]
+KtBindPhoneAccountActivity 绑定手机号
+BindPhoneActivity          绑定手机号
+KtBindWxActivity           绑定微信
+StationMapModeActivity   油站地图
+KtChooseCouponActivity   优惠券选择
+OrderHistoryActivity     订单列表
+OrderDetailActivity      订单详情
+RequestRefundActivity    退款申请
+SwipeControlActivity     油站旁边扫描付款安全提示
+UserInfoActivity         用户信息
+KChooseCarTypeActivity2  认证说明与选择认证项
+KPrivateCarActivity      私家车完善资料
 KPrivateCarTwoActivity   提示已加入的认证平台
 KReviewSuccessActivity   提交审核中
-
+MessageCenterActivity    消息
+UrlActivity              特殊webview在baseWeb基类
+ChangeInvoiceTitleActivity 发票管理
+EvaluateActivity         支付成功页
+FloatWebView             分享成功的webview
+FreeChargeActivity       分享成功获取卷提醒
+GDNavActivity             导航
 
 未使用的activity：
-KStationDetailActivity
-StationMapActivity
+KStationDetailActivity          油站详情
+StationMapActivity              油站地铁
+KPayActivity                    确认支付
+KInputPriceActivity             确认订单
+KEnterpriseCooperationActivity  企业合作完善信息
+TruckCertificationActivity      货车认证
+SubmitSuccessActivity           资料提交审核成功
+KPaySuccessActivity             支付成功
+KScreenShotDesActivity          截图
+MyCouponWebActivity             优惠卷web
+AuditingStateActivity           身份审核中
+BindWXActivity                  绑定微信
+ChooseOilTypeActivity           非私家车
+ChoosePayWayActivity            支付订单

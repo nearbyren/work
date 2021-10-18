@@ -1,0 +1,34 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        //使用阿里云镜像替代
+//        jcenter() // http://jcenter.bintray.com/
+//        google()  // https://maven.google.com/
+//        maven { url 'https://repo1.maven.org/maven2/' }
+//        maven { url 'https://repos.zeroturnaround.com/nexus/content/repositories/zt-public-releases' }
+
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' } //central仓和jcenter仓的聚合仓
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://developer.huawei.com/repo/'} //华为推送
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.3'
+        classpath "com.tencent.bugly:tinker-support:1.2.1"
+        //华为推送
+        classpath 'com.huawei.agconnect:agcp:1.4.2.300'
+    }
+}
+allprojects {
+    repositories {
+        //使用阿里云镜像替代
+//        jcenter() // http://jcenter.bintray.com/
+//        google()  // https://maven.google.com/
+//        maven { url 'https://repo1.maven.org/maven2/' }
+
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url "https://maven.aliyun.com/repository/public" } //central仓和jcenter仓的聚合仓
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://developer.huawei.com/repo/'} //华为推送
+    }
+}

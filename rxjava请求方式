@@ -1,0 +1,216 @@
+fun rxJava(newStationListData: NewStationListBean.DataBean?) {
+    try {
+        val map = java.util.HashMap<String, String>()
+        val latitude = SPUtils.get(activity, "latitude", "") as String
+        val longitude = SPUtils.get(activity, "longitude", "") as String
+        map["longitude"] = longitude
+        map["latitude"] = latitude
+        map["cityName"] = city
+
+        val map2 = java.util.HashMap<String, String>()
+        map2["longitude"] = longitude
+        map2["latitude"] = latitude
+        map2["cityName"] = city
+
+
+        val map3 = java.util.HashMap<String, String>()
+        map["longitude"] = longitude
+        map["latitude"] = latitude
+        map["carType"] = "26"
+        map["advertTypeId"] = "1"//1，开屏广告
+        val city = SPUtils.get(activity, "current_city_name", "")
+        map["cityName"] = city.toString()
+
+        val defaultOilId =
+            SPUtils.get(activity, Constants.SELCTED_FREQUENTLY_USED_OIL_TYPE, "1") as String
+        val map4 = java.util.HashMap<String, String>()
+        map4["oilId"] = defaultOilId
+
+
+        var bannerOb = mModel?.postBannerDataOb(map) as Observable//HomeBannerBean.DataBean
+        var operationOb =
+            mModel?.getHomeOperationOb(map2) as Observable//HomeBannerBean.DataBean
+        var splashAdOb =
+            mModel?.getSplashAdDataOb(map3) as Observable//FloatBannerDataBean.DataBean
+        var versionOb = mModel?.checkNewVersionOb(map2) as Observable//UpdateDataBean
+        var couponListOb =
+            mModel?.getCouponListOb(map4) as Observable//ChoosePayDiscountBean.DataBean
+        var oilgoldDataOb = mModel?.getOilgoldDataOb() as Observable//OilGoldBean.Data
+
+        val index = IndexRxData()
+        //三个接口
+        Observable.zip(
+            bannerOb.compose(RxStreamHelper.io_MainCode()),
+            splashAdOb.compose(RxStreamHelper.io_MainStatus()),
+            oilgoldDataOb.compose(RxStreamHelper.io_MainCode()), Function3<
+                    HomeBannerBean.DataBean?,
+                    FloatBannerDataBean.DataBean?,
+                    OilGoldBean.Data?,
+                    IndexRxData?> { banner, floatx, oilGold ->
+                index.banner = banner
+                index.floatx = floatx
+                index.oilGold = oilGold
+                index
+        }).subscribe({
+            it
+            if (it != null) {
+                rxBanner(it.banner)
+                rxSplash(it.floatx)
+                rxOilGold(it.oilGold)
+            }
+        }, {
+            DebugLog.d("rxJava onError2 " + it.printStackTrace())
+            DebugLog.d("rxJava onError2 " + it.message)
+        }, {
+            DebugLog.d("rxJava onComplete2")
+        })
+
+        //三个必须显示接口
+
+        Observable.zip(
+            operationOb.compose(RxStreamHelper.io_MainStatus()),
+            versionOb.compose(RxStreamHelper.io_MainCode()),
+            couponListOb.compose(RxStreamHelper.io_MainCode()), Function3<
+                    HomeBannerBean.DataBean?,
+                    UpdateDataBean?,
+                    ChoosePayDiscountBean.DataBean?,
+                    IndexRxData?> { operation, update, coupon ->
+                index.operation = operation
+                index.update = update
+                index.coupon = coupon
+                index
+            }).subscribe({
+            it
+            if (it != null) {
+                rxOperation(it.operation)
+                rxVersion(it.update)
+                rxCoupon(it.coupon)
+            }
+        }, {
+            DebugLog.d("rxJava onError1 " + it.printStackTrace())
+            DebugLog.d("rxJava onError1 " + it.message)
+        }, {
+            DebugLog.d("rxJava onComplete1")
+            mView.rxJavaResult(
+                newStationListData,
+                index.update,
+                index.operation,
+                isSwitchCity,
+                index.coupon
+            )
+        })
+
+
+
+/*
+        Observable.zip(
+            bannerOb.compose(RxStreamHelper.io_MainCode()),
+            operationOb.compose(RxStreamHelper.io_MainStatus()),
+            splashAdOb.compose(RxStreamHelper.io_MainStatus()),
+            versionOb.compose(RxStreamHelper.io_MainCode()),
+            couponListOb.compose(RxStreamHelper.io_MainCode()),
+            oilgoldDataOb.compose(RxStreamHelper.io_MainCode()), Function6<
+                    HomeBannerBean.DataBean?, HomeBannerBean.DataBean?,
+                    FloatBannerDataBean.DataBean?, UpdateDataBean?,
+                    ChoosePayDiscountBean.DataBean?, OilGoldBean.Data?,
+                    IndexRxData?> { banner, operation, floatx, update, coupon, oilGold ->
+
+                index.banner = banner
+                index.operation = operation
+                index.floatx = floatx
+                index.update = update
+                index.coupon = coupon
+                index.oilGold = oilGold
+                index
+            }).subscribe({
+            it
+            if (it != null) {
+                rxBanner(it.banner)
+                rxOperation(it.operation)
+                rxSplash(it.floatx)
+                rxVersion(it.update)
+                rxCoupon(it.coupon)
+                rxOilGold(it.oilGold)
+            }
+        }, {
+            DebugLog.d("rxJava onError1 " + it.printStackTrace())
+            DebugLog.d("rxJava onError1 " + it.message)
+        }, {
+            DebugLog.d("rxJava onComplete1")
+            mView.rxJavaResult(
+                newStationListData,
+                index.update,
+                index.operation,
+                isSwitchCity,
+                index.coupon
+            )
+        })*/
+
+    } catch (e: Exception) {
+        DebugLog.d("rxJava " + e.message)
+    }
+}
+
+
+
+fun rxCoupon(coupon: ChoosePayDiscountBean.DataBean) {
+       choosePayDiscountBean = coupon
+   }
+
+
+
+ fun rxSplash(data: FloatBannerDataBean.DataBean) {
+    val img = data.img
+    if (!TextUtils.isEmpty(img)) {
+        Glide.with(activity).load(img)
+            .diskCacheStrategy(DiskCacheStrategy.SOURCE).preload()
+        Glide.with(activity).load(img).asGif()
+            .diskCacheStrategy(DiskCacheStrategy.SOURCE).preload()
+    }
+    //保存开屏广告信息
+    SPUtils.put(activity, Constants.SPLASH_AD, Gson().toJson(data))
+}
+
+fun rxOperation(operationData: HomeBannerBean.DataBean) {
+    this.operationData = operationData
+}
+
+private fun rxBanner(bannerData: HomeBannerBean.DataBean) {
+    if (bannerData == null) {
+        return
+    }
+    val ad = bannerData!!.ad
+    val banner = bannerData?.banner
+    val images = ArrayList<Any>()
+    bannerList.clear()
+    if (banner != null && banner.isNotEmpty()) {
+        for (i in banner.indices) {
+            bannerList.add(banner[i])
+            images.add(banner[i].img!!)
+        }
+    } else {
+        images.add(R.drawable.home_default_banner)
+    }
+    mView.onResponseBannerResult(ad, images)
+}
+
+fun rxVersion(update: UpdateDataBean) {
+    mUpdateBean = update
+}
+
+
+override fun rxJavaResult(
+    newStationListData: NewStationListBean.DataBean?,
+    updateBean: UpdateDataBean?,
+    operationData: HomeBannerBean.DataBean?,
+    switchCity: Boolean,
+    choosePayDiscountBean: ChoosePayDiscountBean.DataBean?
+) {
+    onResponseSuccess(
+        newStationListData,
+        updateBean,
+        operationData,
+        switchCity,
+        choosePayDiscountBean
+    )
+}

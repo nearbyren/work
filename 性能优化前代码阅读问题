@@ -1,0 +1,50 @@
+1.如果未定位则开启定位再请求。已定位则请求后台获取定位数据
+2.进入首页主界面先定百度请求定位获取经纬度。                         /app/index/queryStationList                 1.07s
+条件：获取油站列表成功后
+3.获取列表成功后再获取banner轮播广告信息。                         /app/index/getIndexBanners;                 294ms
+4.获取运营广告弹框信息。【统计次数】                              /app/index/getIndexAlerts;                   326ms
+5.根据定位结果进行请求获取油站列表，再根据身份获取开屏广告信息。      /app/index/app/adverts;                       369ms
+6.检查版本更新【统计次数】                                     /app/index/getDownloadJob                      152ms
+7.获取优惠卷【统计次数】                                      /app/coupon/get/coupon/objects/                 169ms
+8.获取加油金账号信息                                        /app/account/queryIndexOilgoldAccountInfo         54ms
+统计三个接口请求结束后刷新UI
+参数一：列表数据
+参数二：版本
+参数三：运营
+参数四：城市数据是否打开
+参数五：加油金账号信息
+mView.onResponseSuccess(newStationListData, mUpdateBean, operationData, isSwitchCity, choosePayDiscountBean)
+
+
+/app/index/deviceInfo/recordDeviceInfo   // 注册推送设备
+/app/myPage/getMyInfoApp/                //获取用户信息
+/app/index/deviceInfo/recordDeviceInfo   //推送上传注册
+app/userManage/updateCoordinate         //发送广播注册
+
+
+
+https://dev.ejiayou.com/gateway/ejy-portal-service/app/eapi/queryUserLifeGuide
+
+                      getBannerData()
+//                    getHomeOperationDialog()【统计次数】
+//                    //获取开屏广告
+//                    getSplashAdData(newStationListData?.carType.toString())
+//                    //检查升级
+//                    checkNewVersion()【统计次数】
+//                    getCouponList(defaultOilId)【统计次数】
+//                    getOilgoldData()
+
+
+//加载更多。位置是自己算的。 排序问题
+
+adb pull /sdcard/Android/data/net.iusky.yijiayou/files/testmain.trace .
+关于首页无法滑动的问题：
+1.webView发送事件隐藏view               EventBus.getDefault().post(FirstEvent("hideWebView"))
+2.请求列表数据后的三个接口请求成功后        EventBus.getDefault().post(HomeTabEvent(HomeTabEvent.TYPE_7, "false"))
+
+
+油站列表字段分析解读
+价格分为：优惠价/油站价格/国家价
+
+
+优化建议方式：预加载。 将列表数据请求获取数据完毕再进主界面
