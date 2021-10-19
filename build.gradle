@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-
+预发布版本【PRE版本】
+首页预加载，portal接口改造 【测试版】
     compileSdkVersion 29
 
     defaultConfig {
@@ -283,4 +284,3 @@ static def formatString(String value) {
 
 // 依赖插件脚本
 apply from: 'tinker-support.gradle'
-

@@ -18,7 +18,8 @@ buildscript {
         //华为推送
         classpath 'com.huawei.agconnect:agcp:1.4.2.300'
     }
-}
+}    com.alibaba.fastjson.JSONObject jsonObject = new com.alibaba.fastjson.JSONObject();
+            jsonObject.put("type",body);
 allprojects {
     repositories {
         //使用阿里云镜像替代

@@ -1,0 +1,156 @@
+10/19  以下对应的支付方式：payWay 1：微信 2:支付宝 69:银联 70：农行 80:工行 91:小浦发 99:中信 102:建行 103:中国银行 无卡支付
+1.微信支付成功   并成功查看支付完成页。  修复评论提交bug
+2.支付宝支付成功 并成功查看支付完成页。  获取支付评论。
+3.工行支付      跳转支付网页成功 并支付成功  评论成功 其他评论成功
+4.小浦支付      跳转网页成功
+5.中国工商      生成订单失败
+6.中信银行      跳转网页成功
+6.农业银行      跳转网页成功
+7.银联云闪付    跳转网页成功
+
+
+银行卡网页支付返回的日志
+
+2021-10-19 11:38:14.678 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(84)] "Uncaught ReferenceError: wapVersion is not defined", source: https://vip2b2c.icbc.com.cn/ebdpui/open4iphone/requirejs/config.js?ver=202110170622 (84)
+2021-10-19 11:38:15.237 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:39:52.532 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:39:54.875 17873-17873/net.iusky.yijiayou W/cr_BindingManager: Cannot call determinedVisibility() - never saw a connection for the pid: 17873
+2021-10-19 11:39:54.915 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(4)] "The key "inital-scale" is not recognized and ignored.", source: https://dev.ejiayou.com/pages/ejiayoupay/platform/paySuccess.html?orderId=9110000020157081&api=%2Fapi%2Fqrcode&app_id=10000000000003176011&biz_content=%7B%22ecoupon_amt%22%3A%220%22%2C%22mer_id%22%3A%22%22%2C%22return_msg%22%3A%22success%22%2C%22attch%22%3A%22%22%2C%22total_disc_amt%22%3A%22%22%2C%22pay_time%22%3A%2220211019%22%2C%22total_amt%22%3A%2260%22%2C%22out_trade_no%22%3A%229110000020157081%22%2C%22card_no%22%3A%226212****4347%22%2C%22bank_disc_amt%22%3A%220%22%2C%22coupon_amt%22%3A%220%22%2C%22mer_disc_amt%22%3A%220%22%2C%22payment_amt%22%3A%2260%22%2C%22msg_id%22%3A%226aff3c3221724564b7d7877998101168%22%2C%22point_amt%22%3A%220%22%2C%22return_code%22%3A%220%22%2C%22cust_id%22%3A%22%22%7D&charset=UTF-8&format=json&from=icbc-api&sign_type=RSA&timestamp=2021-10-19+11%3A38%3A13&sign=N5cqMM2GEOPSAfBGxdhiOiv%2BqKzKY6VJPkvD57Q7nnTW%2BfuKEiT%2FbHmmsa%2BRd2DVRz%2Fe7nlVcVdmD3zcPJ3J0FWnrd3j3b1t0M5uok1JQEL1NoxjN9vWWdPselGdkGiVLB01Pe5IpuXwM0qKuGLCZL3ZZHgtGX7Yd2rxmILBLRE%3D (4)
+2021-10-19 11:39:54.915 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(4)] "The value "no;" for key "user-scalable" is invalid, and has been ignored.", source: https://dev.ejiayou.com/pages/ejiayoupay/platform/paySuccess.html?orderId=9110000020157081&api=%2Fapi%2Fqrcode&app_id=10000000000003176011&biz_content=%7B%22ecoupon_amt%22%3A%220%22%2C%22mer_id%22%3A%22%22%2C%22return_msg%22%3A%22success%22%2C%22attch%22%3A%22%22%2C%22total_disc_amt%22%3A%22%22%2C%22pay_time%22%3A%2220211019%22%2C%22total_amt%22%3A%2260%22%2C%22out_trade_no%22%3A%229110000020157081%22%2C%22card_no%22%3A%226212****4347%22%2C%22bank_disc_amt%22%3A%220%22%2C%22coupon_amt%22%3A%220%22%2C%22mer_disc_amt%22%3A%220%22%2C%22payment_amt%22%3A%2260%22%2C%22msg_id%22%3A%226aff3c3221724564b7d7877998101168%22%2C%22point_amt%22%3A%220%22%2C%22return_code%22%3A%220%22%2C%22cust_id%22%3A%22%22%7D&charset=UTF-8&format=json&from=icbc-api&sign_type=RSA&timestamp=2021-10-19+11%3A38%3A13&sign=N5cqMM2GEOPSAfBGxdhiOiv%2BqKzKY6VJPkvD57Q7nnTW%2BfuKEiT%2FbHmmsa%2BRd2DVRz%2Fe7nlVcVdmD3zcPJ3J0FWnrd3j3b1t0M5uok1JQEL1NoxjN9vWWdPselGdkGiVLB01Pe5IpuXwM0qKuGLCZL3ZZHgtGX7Yd2rxmILBLRE%3D (4)
+2021-10-19 11:39:54.915 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(4)] "Error parsing a meta element's content: ';' is not a valid key-value pair separator. Please use ',' instead.", source: https://dev.ejiayou.com/pages/ejiayoupay/platform/paySuccess.html?orderId=9110000020157081&api=%2Fapi%2Fqrcode&app_id=10000000000003176011&biz_content=%7B%22ecoupon_amt%22%3A%220%22%2C%22mer_id%22%3A%22%22%2C%22return_msg%22%3A%22success%22%2C%22attch%22%3A%22%22%2C%22total_disc_amt%22%3A%22%22%2C%22pay_time%22%3A%2220211019%22%2C%22total_amt%22%3A%2260%22%2C%22out_trade_no%22%3A%229110000020157081%22%2C%22card_no%22%3A%226212****4347%22%2C%22bank_disc_amt%22%3A%220%22%2C%22coupon_amt%22%3A%220%22%2C%22mer_disc_amt%22%3A%220%22%2C%22payment_amt%22%3A%2260%22%2C%22msg_id%22%3A%226aff3c3221724564b7d7877998101168%22%2C%22point_amt%22%3A%220%22%2C%22return_code%22%3A%220%22%2C%22cust_id%22%3A%22%22%7D&charset=UTF-8&format=json&from=icbc-api&sign_type=RSA&timestamp=2021-10-19+11%3A38%3A13&sign=N5cqMM2GEOPSAfBGxdhiOiv%2BqKzKY6VJPkvD57Q7nnTW%2BfuKEiT%2FbHmmsa%2BRd2DVRz%2Fe7nlVcVdmD3zcPJ3J0FWnrd3j3b1t0M5uok1JQEL1NoxjN9vWWdPselGdkGiVLB01Pe5IpuXwM0qKuGLCZL3ZZHgtGX7Yd2rxmILBLRE%3D (4)
+2021-10-19 11:39:55.061 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(41)] "[object HTMLDivElement]", source: https://img.ejiayou.com/activity/pages/ejiayoupay/platform/js/ejyWxToast.js (41)
+2021-10-19 11:39:55.061 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(41)] "[object HTMLDivElement]", source: https://img.ejiayou.com/activity/pages/ejiayoupay/platform/js/ejyWxToast.js (41)
+2021-10-19 11:39:55.200 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(0)] "Failed to decode downloaded font: https://img.ejiayou.com/wxmp/css/PingFangSC-Regular.ttf", source: https://dev.ejiayou.com/pages/ejiayoupay/platform/paySuccess.html?orderId=9110000020157081&api=%2Fapi%2Fqrcode&app_id=10000000000003176011&biz_content=%7B%22ecoupon_amt%22%3A%220%22%2C%22mer_id%22%3A%22%22%2C%22return_msg%22%3A%22success%22%2C%22attch%22%3A%22%22%2C%22total_disc_amt%22%3A%22%22%2C%22pay_time%22%3A%2220211019%22%2C%22total_amt%22%3A%2260%22%2C%22out_trade_no%22%3A%229110000020157081%22%2C%22card_no%22%3A%226212****4347%22%2C%22bank_disc_amt%22%3A%220%22%2C%22coupon_amt%22%3A%220%22%2C%22mer_disc_amt%22%3A%220%22%2C%22payment_amt%22%3A%2260%22%2C%22msg_id%22%3A%226aff3c3221724564b7d7877998101168%22%2C%22point_amt%22%3A%220%22%2C%22return_code%22%3A%220%22%2C%22cust_id%22%3A%22%22%7D&charset=UTF-8&format=json&from=icbc-api&sign_type=RSA&timestamp=2021-10-19+11%3A38%3A13&sign=N5cqMM2GEOPSAfBGxdhiOiv%2BqKzKY6VJPkvD57Q7nnTW%2BfuKEiT%2FbHmmsa%2BRd2DVRz%2Fe7nlVcVdmD3zcPJ3J0FWnrd3j3b1t0M5uok1JQEL1NoxjN9vWWdPselGdkGiVLB01Pe5IpuXwM0qKuGLCZL3ZZHgtGX7Yd2rxmILBLRE%3D (0)
+2021-10-19 11:39:55.200 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(0)] "OTS parsing error: invalid version tag", source: https://dev.ejiayou.com/pages/ejiayoupay/platform/paySuccess.html?orderId=9110000020157081&api=%2Fapi%2Fqrcode&app_id=10000000000003176011&biz_content=%7B%22ecoupon_amt%22%3A%220%22%2C%22mer_id%22%3A%22%22%2C%22return_msg%22%3A%22success%22%2C%22attch%22%3A%22%22%2C%22total_disc_amt%22%3A%22%22%2C%22pay_time%22%3A%2220211019%22%2C%22total_amt%22%3A%2260%22%2C%22out_trade_no%22%3A%229110000020157081%22%2C%22card_no%22%3A%226212****4347%22%2C%22bank_disc_amt%22%3A%220%22%2C%22coupon_amt%22%3A%220%22%2C%22mer_disc_amt%22%3A%220%22%2C%22payment_amt%22%3A%2260%22%2C%22msg_id%22%3A%226aff3c3221724564b7d7877998101168%22%2C%22point_amt%22%3A%220%22%2C%22return_code%22%3A%220%22%2C%22cust_id%22%3A%22%22%7D&charset=UTF-8&format=json&from=icbc-api&sign_type=RSA&timestamp=2021-10-19+11%3A38%3A13&sign=N5cqMM2GEOPSAfBGxdhiOiv%2BqKzKY6VJPkvD57Q7nnTW%2BfuKEiT%2FbHmmsa%2BRd2DVRz%2Fe7nlVcVdmD3zcPJ3J0FWnrd3j3b1t0M5uok1JQEL1NoxjN9vWWdPselGdkGiVLB01Pe5IpuXwM0qKuGLCZL3ZZHgtGX7Yd2rxmILBLRE%3D (0)
+2021-10-19 11:39:55.204 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(53)] "会话标识:", source: https://img.ejiayou.com/activity/js/common/md.js (53)
+2021-10-19 11:39:55.209 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(112)] "_p,,", source: https://img.ejiayou.com/activity/js/common/md.js (112)
+2021-10-19 11:39:55.565 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(889)] "[object Object]", source: https://dev.ejiayou.com/pages/ejiayoupay/platform/paySuccess.html?orderId=9110000020157081&api=%2Fapi%2Fqrcode&app_id=10000000000003176011&biz_content=%7B%22ecoupon_amt%22%3A%220%22%2C%22mer_id%22%3A%22%22%2C%22return_msg%22%3A%22success%22%2C%22attch%22%3A%22%22%2C%22total_disc_amt%22%3A%22%22%2C%22pay_time%22%3A%2220211019%22%2C%22total_amt%22%3A%2260%22%2C%22out_trade_no%22%3A%229110000020157081%22%2C%22card_no%22%3A%226212****4347%22%2C%22bank_disc_amt%22%3A%220%22%2C%22coupon_amt%22%3A%220%22%2C%22mer_disc_amt%22%3A%220%22%2C%22payment_amt%22%3A%2260%22%2C%22msg_id%22%3A%226aff3c3221724564b7d7877998101168%22%2C%22point_amt%22%3A%220%22%2C%22return_code%22%3A%220%22%2C%22cust_id%22%3A%22%22%7D&charset=UTF-8&format=json&from=icbc-api&sign_type=RSA&timestamp=2021-10-19+11%3A38%3A13&sign=N5cqMM2GEOPSAfBGxdhiOiv%2BqKzKY6VJPkvD57Q7nnTW%2BfuKEiT%2FbHmmsa%2BRd2DVRz%2Fe7nlVcVdmD3zcPJ3J0FWnrd3j3b1t0M5uok1JQEL1NoxjN9vWWdPselGdkGiVLB01Pe5IpuXwM0qKuGLCZL3ZZHgtGX7Yd2rxmILBLRE%3D (889)
+2021-10-19 11:39:55.565 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(824)] "[object Object]", source: https://dev.ejiayou.com/pages/ejiayoupay/platform/paySuccess.html?orderId=9110000020157081&api=%2Fapi%2Fqrcode&app_id=10000000000003176011&biz_content=%7B%22ecoupon_amt%22%3A%220%22%2C%22mer_id%22%3A%22%22%2C%22return_msg%22%3A%22success%22%2C%22attch%22%3A%22%22%2C%22total_disc_amt%22%3A%22%22%2C%22pay_time%22%3A%2220211019%22%2C%22total_amt%22%3A%2260%22%2C%22out_trade_no%22%3A%229110000020157081%22%2C%22card_no%22%3A%226212****4347%22%2C%22bank_disc_amt%22%3A%220%22%2C%22coupon_amt%22%3A%220%22%2C%22mer_disc_amt%22%3A%220%22%2C%22payment_amt%22%3A%2260%22%2C%22msg_id%22%3A%226aff3c3221724564b7d7877998101168%22%2C%22point_amt%22%3A%220%22%2C%22return_code%22%3A%220%22%2C%22cust_id%22%3A%22%22%7D&charset=UTF-8&format=json&from=icbc-api&sign_type=RSA&timestamp=2021-10-19+11%3A38%3A13&sign=N5cqMM2GEOPSAfBGxdhiOiv%2BqKzKY6VJPkvD57Q7nnTW%2BfuKEiT%2FbHmmsa%2BRd2DVRz%2Fe7nlVcVdmD3zcPJ3J0FWnrd3j3b1t0M5uok1JQEL1NoxjN9vWWdPselGdkGiVLB01Pe5IpuXwM0qKuGLCZL3ZZHgtGX7Yd2rxmILBLRE%3D (824)
+2021-10-19 11:39:55.748 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:39:56.075 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(919)] "[object Object]", source: https://dev.ejiayou.com/pages/ejiayoupay/platform/paySuccess.html?orderId=9110000020157081&api=%2Fapi%2Fqrcode&app_id=10000000000003176011&biz_content=%7B%22ecoupon_amt%22%3A%220%22%2C%22mer_id%22%3A%22%22%2C%22return_msg%22%3A%22success%22%2C%22attch%22%3A%22%22%2C%22total_disc_amt%22%3A%22%22%2C%22pay_time%22%3A%2220211019%22%2C%22total_amt%22%3A%2260%22%2C%22out_trade_no%22%3A%229110000020157081%22%2C%22card_no%22%3A%226212****4347%22%2C%22bank_disc_amt%22%3A%220%22%2C%22coupon_amt%22%3A%220%22%2C%22mer_disc_amt%22%3A%220%22%2C%22payment_amt%22%3A%2260%22%2C%22msg_id%22%3A%226aff3c3221724564b7d7877998101168%22%2C%22point_amt%22%3A%220%22%2C%22return_code%22%3A%220%22%2C%22cust_id%22%3A%22%22%7D&charset=UTF-8&format=json&from=icbc-api&sign_type=RSA&timestamp=2021-10-19+11%3A38%3A13&sign=N5cqMM2GEOPSAfBGxdhiOiv%2BqKzKY6VJPkvD57Q7nnTW%2BfuKEiT%2FbHmmsa%2BRd2DVRz%2Fe7nlVcVdmD3zcPJ3J0FWnrd3j3b1t0M5uok1JQEL1NoxjN9vWWdPselGdkGiVLB01Pe5IpuXwM0qKuGLCZL3ZZHgtGX7Yd2rxmILBLRE%3D (919)
+2021-10-19 11:39:56.100 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(591)] "POST,https://dev.ejiayou.com/eapi/v1/app/pay_over_ad/inline,true,,", source: https://img.ejiayou.com/activity/js/common/md.js (591)
+2021-10-19 11:39:56.106 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(591)] "POST,/activity/popupapi/popup?t=1634614796102,true,,", source: https://img.ejiayou.com/activity/js/common/md.js (591)
+2021-10-19 11:39:56.764 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(855)] "[object Object]", source: https://dev.ejiayou.com/pages/ejiayoupay/platform/paySuccess.html?orderId=9110000020157081&api=%2Fapi%2Fqrcode&app_id=10000000000003176011&biz_content=%7B%22ecoupon_amt%22%3A%220%22%2C%22mer_id%22%3A%22%22%2C%22return_msg%22%3A%22success%22%2C%22attch%22%3A%22%22%2C%22total_disc_amt%22%3A%22%22%2C%22pay_time%22%3A%2220211019%22%2C%22total_amt%22%3A%2260%22%2C%22out_trade_no%22%3A%229110000020157081%22%2C%22card_no%22%3A%226212****4347%22%2C%22bank_disc_amt%22%3A%220%22%2C%22coupon_amt%22%3A%220%22%2C%22mer_disc_amt%22%3A%220%22%2C%22payment_amt%22%3A%2260%22%2C%22msg_id%22%3A%226aff3c3221724564b7d7877998101168%22%2C%22point_amt%22%3A%220%22%2C%22return_code%22%3A%220%22%2C%22cust_id%22%3A%22%22%7D&charset=UTF-8&format=json&from=icbc-api&sign_type=RSA&timestamp=2021-10-19+11%3A38%3A13&sign=N5cqMM2GEOPSAfBGxdhiOiv%2BqKzKY6VJPkvD57Q7nnTW%2BfuKEiT%2FbHmmsa%2BRd2DVRz%2Fe7nlVcVdmD3zcPJ3J0FWnrd3j3b1t0M5uok1JQEL1NoxjN9vWWdPselGdkGiVLB01Pe5IpuXwM0qKuGLCZL3ZZHgtGX7Yd2rxmILBLRE%3D (855)
+2021-10-19 11:39:57.613 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:08.287 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(41)] "[object HTMLDivElement]", source: https://img.ejiayou.com/activity/pages/ejiayoupay/platform/js/ejyWxToast.js (41)
+2021-10-19 11:40:08.293 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(591)] "POST,https://dev.ejiayou.com/v1/evaluate/commitEvaluation.do,true,,", source: https://img.ejiayou.com/activity/js/common/md.js (591)
+2021-10-19 11:40:09.326 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:10.767 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:13.738 17873-17873/net.iusky.yijiayou W/cr_BindingManager: Cannot call determinedVisibility() - never saw a connection for the pid: 17873
+2021-10-19 11:40:13.934 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(13)] "The key "inital-scale" is not recognized and ignored.", source: https://dev.ejiayou.com/wxmp/view/showEvaluate.ac?userId=2122341589&orderId=9110000020157081&source= (13)
+2021-10-19 11:40:14.535 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:16.350 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(41)] "[object HTMLDivElement]", source: https://img.ejiayou.com/wxmp/ejyWxToast.js?v=20170508 (41)
+2021-10-19 11:40:16.350 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(41)] "[object HTMLDivElement]", source: https://img.ejiayou.com/wxmp/ejyWxToast.js?v=20170508 (41)
+2021-10-19 11:40:16.782 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,PhoneWindow : net.iusky.yijiayou)
+2021-10-19 11:40:17.234 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:17.475 17873-19580/net.iusky.yijiayou W/chromium: [WARNING:spdy_session.cc(2523)] Received RST for invalid stream1
+2021-10-19 11:40:17.732 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:18.676 17873-17873/net.iusky.yijiayou I/Bitmap: APS: SDR: Bitmap.Bitmap. create bitmap density = 614, width = 64, height = 64
+2021-10-19 11:40:18.725 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:19.229 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:20.278 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:21.471 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:22.415 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,PhoneWindow : net.iusky.yijiayou)
+2021-10-19 11:40:22.497 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:23.575 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:24.073 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:25.267 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:26.350 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:26.446 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(41)] "[object HTMLDivElement]", source: https://img.ejiayou.com/wxmp/ejyWxToast.js?v=20170508 (41)
+2021-10-19 11:40:27.378 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:28.403 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:29.427 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:30.145 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:31.780 17873-17873/net.iusky.yijiayou W/cr_BindingManager: Cannot call determinedVisibility() - never saw a connection for the pid: 17873
+2021-10-19 11:40:32.084 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(53)] "会话标识:", source: https://img.ejiayou.com/activity/js/common/md.js (53)
+2021-10-19 11:40:32.086 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(112)] "_onclick,#share", source: https://img.ejiayou.com/activity/js/common/md.js (112)
+2021-10-19 11:40:32.911 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:33.248 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(372)] "数据", source: https://dev.ejiayou.com/wxmp/myorder/refuelHistory.ac?osType=3&userId=2122341589&stationId=0 (372)
+2021-10-19 11:40:33.936 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:34.227 17873-17873/net.iusky.yijiayou I/Bitmap: APS: SDR: Bitmap.Bitmap. create bitmap density = 614, width = 64, height = 64
+2021-10-19 11:40:35.014 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:35.510 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:36.028 17873-17873/net.iusky.yijiayou W/cr_BindingManager: Cannot call determinedVisibility() - never saw a connection for the pid: 17873
+2021-10-19 11:40:36.486 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:37.681 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:37.866 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(530)] "[object Object]", source: https://dev.ejiayou.com/wxmp/myorder/orderDetail.ac?orderId=9110000020157081&userId=2122341589&stationId=0&shellPayInfo=&productType=0 (530)
+2021-10-19 11:40:38.456 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:40.071 17873-17873/net.iusky.yijiayou I/Bitmap: APS: SDR: Bitmap.Bitmap. create bitmap density = 614, width = 64, height = 64
+2021-10-19 11:40:45.057 17873-17873/net.iusky.yijiayou V/AudioManager: playSoundEffect   effectType: 0
+2021-10-19 11:40:45.057 17873-17873/net.iusky.yijiayou V/AudioManager: querySoundEffectsEnabled...
+2021-10-19 11:40:45.083 17873-17873/net.iusky.yijiayou W/cr_BindingManager: Cannot call determinedVisibility() - never saw a connection for the pid: 17873
+2021-10-19 11:40:45.235 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(53)] "会话标识:", source: https://img.ejiayou.com/activity/js/common/md.js (53)
+2021-10-19 11:40:45.236 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(112)] "_onclick,#share", source: https://img.ejiayou.com/activity/js/common/md.js (112)
+2021-10-19 11:40:46.200 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:46.921 17873-17873/net.iusky.yijiayou I/Bitmap: APS: SDR: Bitmap.Bitmap. create bitmap density = 614, width = 64, height = 64
+2021-10-19 11:40:47.223 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:47.399 17873-17873/net.iusky.yijiayou I/chromium: [INFO:CONSOLE(372)] "数据", source: https://dev.ejiayou.com/wxmp/myorder/refuelHistory.ac?osType=3&userId=2122341589&stationId=0 (372)
+2021-10-19 11:40:48.250 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:40:49.639 17873-17873/net.iusky.yijiayou I/InteractionManager: postMsg(1310001,ViewRootImpl : net.iusky.yijiayou)
+2021-10-19 11:41:22.736 17873-17887/net.iusky.yijiayou I/art: current process_level is : 0
+
+
+2.确认订单  选择优惠券没有问题。
+3.加油记录没问题。加油记录详情。
+
+
+退款流程： 三步骤
+步骤一：post提交：dev.ejiayou.com/oreo/openapi/createRefundApplyForWx/v1/1548930015768 【订单超时需要这样处理】
+参数json
+{
+"orderId": 9110000020154823,
+"reason":""
+}
+或者 app提交退款
+步骤二：登陆万有引力后台：https://dev.ejiayou.com/activity/admin/index?token=eyJ0eXAiOiJqd3QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2MzQ1MjIyNDEsImV4cCI6MTYzNDYwODcwMX0.AMuSG0r27Tz7Y7a-8N32Qw6gGJeOx7dwe5NYm1lvN9s&userKey=ABC465475CF19A4347A3C08D0C45C947
+点击 加油站管理 -> 油站信息管理 -> 搜索油站名称 -> 编辑 -> 查看账号密码信息
+
+步骤三：登陆油站退款后台：https://dev.ejiayou.com/station_platform/pc/pcHomeV2.ac?isSavePsw=1
+
+
+
+
+
+测试遇到问题：
+/app/order/pay/api/gateway  工商支付接口  调整 status 改为 code
+{
+	"code": 200,
+	"message": "操作成功",
+	"data": {
+		"wxWebPayLastMoney": "0.60",
+		"orderSign": "9110000020157047",
+		"tn": "<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/></head><body><form name='auto_submit_form' method='post' action='https://gw.open.icbc.com.cn/ui/b2c/pay/transfer/V1?charset=UTF-8&format=json&sign=L7Mihh9YvAtTc21BnQmea%2FrJX9Gmex0rR2yHcO2QNe%2BK87noYJNg%2FqkBcshxn8kwl5B3p4rVlRroRnbzzSSCBAUlS1xj%2Bvep3T1ZbcMga4MuqiWwir00%2Fg0DLsbtyM2HiZ5m0d8o%2Fgv7C8Kq21PD9Bo2OduEndRzI1cLTHB2gllnCf2MU5nv4VcDoTumrK9JTTdELk3AaYlSMeW35AkVOoaUeOoZkmMbu57ccxHk%2BskhP4AOzYEtxzvGumlstqW39l7p8IPKd5KYssUINRTo5udXcmKJ2SLU8%2BQ6BcfpYXeMdRvGbdSAIyIe2736ADjCE6wUebvZ%2BB6vdmg3BfMl9Q%3D%3D&msg_id=70210cf69adf484582ffd53674bed21c&app_id=10000000000003176011&sign_type=RSA2&timestamp=2021-10-19+10%3A37%3A31'><input type='hidden' name='biz_content' value='{&quot;custom&quot;:{&quot;cust_cert_type&quot;:&quot;&quot;,&quot;check_flag&quot;:&quot;0&quot;,&quot;cust_cert_no&quot;:&quot;&quot;,&quot;cust_name&quot;:&quot;&quot;,&quot;language&quot;:&quot;zh_CN&quot;,&quot;verify_join_flag&quot;:&quot;0&quot;},&quot;message&quot;:{&quot;carriage_amt&quot;:&quot;0&quot;,&quot;mer_custom_id&quot;:&quot;&quot;,&quot;prompt_text&quot;:&quot;&quot;,&quot;is_real&quot;:&quot;&quot;,&quot;mer_order_remark&quot;:&quot;&quot;,&quot;mer_custom_phone&quot;:&quot;&quot;,&quot;notify_type&quot;:&quot;TS&quot;,&quot;mer_custom_ip&quot;:&quot;&quot;,&quot;mer_var&quot;:&quot;&quot;,&quot;return_url&quot;:&quot;https://dev.ejiayou.com/pages/ejiayoupay/platform/paySuccess.html?orderId=9110000020157047&quot;,&quot;backup1&quot;:&quot;&quot;,&quot;goods_name&quot;:&quot;cmVmdWVs&quot;,&quot;result_type&quot;:&quot;0&quot;,&quot;mer_hint&quot;:&quot;0&quot;,&quot;goods_id&quot;:&quot;103731921&quot;,&quot;credit_type&quot;:&quot;2&quot;,&quot;auto_refer_sec&quot;:&quot;&quot;,&quot;mer_reference&quot;:&quot;&quot;,&quot;subidno&quot;:&quot;&quot;,&quot;goods_address&quot;:&quot;&quot;,&quot;goods_num&quot;:&quot;1&quot;,&quot;goods_type&quot;:&quot;&quot;,&quot;backup4&quot;:&quot;&quot;,&quot;remark1&quot;:&quot;&quot;,&quot;backup2&quot;:&quot;&quot;,&quot;backup3&quot;:&quot;&quot;,&quot;remark2&quot;:&quot;&quot;},&quot;order_info&quot;:{&quot;order_date&quot;:&quot;20211019103731&quot;,&quot;amount&quot;:&quot;60&quot;,&quot;mer_id&quot;:&quot;4000EC27255415&quot;,&quot;installment_times&quot;:&quot;1&quot;,&quot;order_id&quot;:&quot;9110000020157047&quot;,&quot;cur_type&quot;:&quot;001&quot;,&quot;mer_acct&quot;:&quot;4000093309100129589&quot;}}'><input type='hidden' name='clientType' value='0'><input type='hidden' name='interfaceVersion' value='1.0.0.6'><input type='hidden' name='interfaceName' value='ICBC_WAPB_B2C'><input type='hidden' name='notify_url' value='https://dev.ejiayou.com/goldmine/ali/order/callback'><input type='submit' value='立刻提交' style='display:none' ></form><script>document.forms[0].submit();</script></body></html>",
+		"stationId": 22223611
+	},
+	"totalCount": null,
+	"success": true
+}
+
+app/comment/comment/getAllCommentList 获取支付评论接口
+报错日志：
+{
+	"timestamp": "2021-10-19T02:33:28.226+0000",
+	"status": 500,
+	"error": "Internal Server Error",
+	"message": "syntax error, pos 1, json : <html><body><h1>Whitelabel Error Page</h1><p>This application has no explicit mapping for /error, so you are seeing this as a fallback.</p><div id='created'>Tue Oct 19 10:33:28 CST 2021</div><div>There was an unexpected error (type=Bad Request, status=400).</div><div>Required String parameter &#39;orderId&#39; is not present</div></body></html>",
+	"path": "/app/comment/comment/getAllCommentList"
+}
+建行零钱卡生成订单失败  app/order/build/8bbef322f5144dcb9c98e25795ab81c4/
+{
+  "code": 400,
+  "data": {},22223611
+  "msg": "请求三方接口异常,接口地址http://dev.ejiayou.com/bank-platform/api/gateway"
+}
+
+中石油南海湾加油站 有评价记录
+
+
+启动页移除字节广告
+
+
+1.修复油站地图油站信息车友评价接口portal
+2.支付成功->评价成功->评价其他接口异常try处理。
+3.加油员评价提交接口异常处理与推广广告接口portal
+4.工行支付生成订单status字段改成code
+微信 支付宝 工行 支付成功并付款。
+剩下 69:银联 70：农行  91:小浦发 99:中信 102:建行 103:中国银行 无卡支付 能成功跳转支付网页。

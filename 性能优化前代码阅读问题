@@ -21,7 +21,9 @@ mView.onResponseSuccess(newStationListData, mUpdateBean, operationData, isSwitch
 /app/index/deviceInfo/recordDeviceInfo   //推送上传注册
 app/userManage/updateCoordinate         //发送广播注册
 
+√
 
+登陆 验证码 创建订单
 
 https://dev.ejiayou.com/gateway/ejy-portal-service/app/eapi/queryUserLifeGuide
 

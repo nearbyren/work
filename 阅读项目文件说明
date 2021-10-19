@@ -49,6 +49,7 @@ KStationDetailActivity2  油站详情      fromSource 来自哪个入口
 QualifyCenterActivity    个人认证
 KOnlineCarActivity       驾驶证
 KOnlineCarTwoActivity    选择认证平台[优步 首汽 神州 其它]
+KPrivateCarTwoActivity   提示已加入的认证平台
 KtBindPhoneAccountActivity 绑定手机号
 BindPhoneActivity          绑定手机号
 KtBindWxActivity           绑定微信
@@ -61,7 +62,6 @@ SwipeControlActivity     油站旁边扫描付款安全提示
 UserInfoActivity         用户信息
 KChooseCarTypeActivity2  认证说明与选择认证项
 KPrivateCarActivity      私家车完善资料
-KPrivateCarTwoActivity   提示已加入的认证平台
 KReviewSuccessActivity   提交审核中
 MessageCenterActivity    消息
 UrlActivity              特殊webview在baseWeb基类
