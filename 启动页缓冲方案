@@ -28,23 +28,15 @@ HashMap<String, String> map = new HashMap<String, String>();
        });
 
 
-
-
-
-
-
-       public void testR() {
-
-
+       //版本
+       public void newVersion() {
            HashMap<String, String> map = new HashMap<String, String>();
-           String defaultOilId = (String) SPUtils.get(this, Constants.SELCTED_FREQUENTLY_USED_OIL_TYPE, "1");
            String latitude = (String) SPUtils.get(this, "latitude", "");
            String longitude = (String) SPUtils.get(this, "longitude", "");
-           map.put("oilId", defaultOilId);
            map.put("longitude", longitude);
            map.put("latitude", latitude);
            //将列表数据请求在这取
-           MyOkhttpUtils.getInstance().postRequestNoTimeStampSessionKey(this, ShiftServer.RequestUrl.index_queryStationList, map, new MyOkhttpUtils.StringCallBack() {
+           MyOkhttpUtils.getInstance().getAndParams(this, map, ShiftServer.index_getDownloadJob, new MyOkhttpUtils.StringCallBack() {
                @Override
                public void onError(Exception e) {
                }
@@ -52,19 +44,7 @@ HashMap<String, String> map = new HashMap<String, String>();
                @Override
                public void onResponse(String response) {
                    DebugLog.d("response = " + response);
-                   SPUtils.put(LoadActivity.this, "test_list", response);
-                   Gson gson = new Gson();
-                   NewStationListBean newStationListBean = gson.fromJson(
-                           response,
-                           NewStationListBean.class
-                   );
-                   if (newStationListBean.getCode().equals("200")) {
-                       if (newStationListBean.getData() != null) {
-                           splashAdData(newStationListBean.getData().getCarType() + "");
-                       }
-                   }
-                   bannerData();
-                   oilgoldData();
+                   SPUtils.put(LoadActivity.this, "new_version", response);
                }
 
                @Override
@@ -72,9 +52,274 @@ HashMap<String, String> map = new HashMap<String, String>();
                }
            });
        }
+    public static final String coupon_get_coupon_objects2 = HOST_MAIN_Affix + "/app/coupon/get/coupon/objects/";
+       //优惠券
+       public void couponList() {
+           if (UserCheck.checkLogin(this)) {
+               Map<String, String> map = new HashMap<String, String>();
+               map = MyOkhttpUtils.getInstance().getNewParams(map, LoadActivity.this);
+               String defaultOilId = (String) SPUtils.get(LoadActivity.this, Constants.SELCTED_FREQUENTLY_USED_OIL_TYPE, "1");
+               map.put("oilId", defaultOilId);
+               //将列表数据请求在这取
+               MyOkhttpUtils.getInstance().postRequest(this, ShiftServer.coupon_get_coupon_objects2, map, new MyOkhttpUtils.StringCallBack() {
+                   @Override
+                   public void onError(Exception e) {
+                   }
+
+                   @Override
+                   public void onResponse(String response) {
+                       DebugLog.d("response = " + response);
+                       SPUtils.put(LoadActivity.this, "coupon_list", response);
+                   }
+
+                   @Override
+                   public void onException() {
+                   }
+               });
+           }
+       }
+
+           //运营广告
+           public void homeOperation() {
+               HashMap<String, String> map = new HashMap<String, String>();
+               String latitude = (String) SPUtils.get(this, "latitude", "");
+               String longitude = (String) SPUtils.get(this, "longitude", "");
+               map.put("longitude", longitude);
+               map.put("latitude", latitude);
+               //将列表数据请求在这取
+               MyOkhttpUtils.getInstance().postRequestNoTimeStampSessionKey(this, ShiftServer.index_getIndexAlerts, map, new MyOkhttpUtils.StringCallBack() {
+                   @Override
+                   public void onError(Exception e) {
+                   }
+
+                   @Override
+                   public void onResponse(String response) {
+                       DebugLog.d("response = " + response);
+                       SPUtils.put(LoadActivity.this, "home_operation", response);
+                   }
+
+                   @Override
+                   public void onException() {
+                   }
+               });
+           }
 
 
 
+
+           private fun getNewStationListData(currentTime: Long) {
+                  Observable.create<String> {
+                      val latitude = SPUtils.get(activity, "latitude", "") as String
+                      val longitude = SPUtils.get(activity, "longitude", "") as String
+                      val myPos = LatLng(latitude.toDouble(), longitude.toDouble())
+                      for (i in stationAllList.indices) {
+                          stationAllList[i].isShowNewUserPrice = newCity == 1 && hasOrder == 0
+                          val stationPos = LatLng(
+                              stationAllList[i].latitude!!.toDouble(),
+                              stationAllList[i].longitude!!.toDouble()
+                          )
+                          val distance = DistanceUtil.getDistance(myPos, stationPos)
+                          stationAllList[i].distance = distance.toInt()
+                          var activityLabels = stationAllList[i].activityLabels
+                          if (activityLabels.size > 2) {
+                              activityLabels = activityLabels.subList(0, 2)
+                          }
+                          if (activityLabels != null && activityLabels.isNotEmpty()) {
+                              for (j in activityLabels.indices) {
+                                  val text = activityLabels[j].text
+                                  if (!TextUtils.isEmpty(text) && text.indexOf("##") != -1) {
+                                      val split = text.split("##")
+                                      val endTime = split[1].toLong()
+                                      if (endTime > currentTime / 1000) {
+                                          stationAllList[i].useTime = (endTime - currentTime / 1000) * 1000
+                                          break
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                      currentStationAllList.clear()
+                      currentStationAllList.addAll(stationAllList)
+                      it.onNext("来了1 ")
+                      it.onComplete()
+                  }.subscribeOn(Schedulers.io())
+                      .observeOn(AndroidSchedulers.mainThread())
+                      .subscribe({
+                          DebugLog.d("str 1 = "+it)
+                      }, {
+                          DebugLog.d("throwable 1 = " + it.message + " - " + it.printStackTrace())
+
+                      }, {
+                          getNewListForSort(sortSelectIndex)
+                          //弹框优先级 升级 > 油品弹窗 > 运营弹窗 > 通知 > 车生活会员
+                          downloadPath = mUpdateBean?.url
+                          if (!TextUtils.isEmpty(downloadPath) && !isShowUpdateDialog && !isPause) {
+                              isShowUpdateDialog = true
+                              Handler().postDelayed({ showNewVersionDialog() }, 200)
+                          } else {
+                              val isNewUser = SPUtils.get(activity, Constants.ISNEWUSER, false) as Boolean
+                              //webview 显示逻辑第一次是在引导弹窗消失后再获取
+                              if (!isNewUser && currentStationAllList.isNotEmpty()) {
+                                  SPUtils.put(activity, Constants.ISNEWUSER, true)
+                                  //延迟，防止计算高度不准确
+                                  Handler().postDelayed({
+                                      showPopuWindowForOilNumTip()
+                                  }, 500)
+                              } else {
+                                  activity?.let { mPresenter.getHomeWebView(it) }
+                                  checkDialogState()//检查弹窗状态
+                              }
+                          }
+                      })
+              }
+
+
+              /**
+     * 处理整理后的数据
+     */
+    private fun refreshListData() {
+        Observable.create<String> {
+//检查是否有活动油站，只有在综合排序(距离排序)下才会置顶
+            if (sortSelectIndex == 0) {
+                var nearActivityIndex = -1//距离当前最近的活动油站
+                for (i in currentStationAllList.indices) {
+                    //加两个条件，进度不是100%，距离小于20km
+                    if (currentStationAllList[i].isDoingActivity == 1 && currentStationAllList[i].isPlaceTop == 1 &&
+                        currentStationAllList[i].activityPercent.toInt() < 100 && currentStationAllList[i].distance <= 20000
+                    ) {
+                        nearActivityIndex = i
+                        break
+                    }
+                }
+                if (nearActivityIndex != -1) {
+                    //置顶跟新数据
+                    val newList = ArrayList<NewStationListBean.DataBean.StationListBean>()
+                    val stationListBean = currentStationAllList[nearActivityIndex]
+                    stationListBean.isActivityTop = 1//设置符合置顶油站
+                    newList.add(stationListBean)
+                    currentStationAllList.removeAt(nearActivityIndex)
+                    newList.addAll(currentStationAllList)
+                    currentStationAllList.clear()
+                    currentStationAllList.addAll(newList)
+                }
+            }
+
+            for (i in 0 until currentStationAllList.size) {
+                //根据优惠券计算优惠金额、calculateMoney
+                try {
+                    val priceLabel = currentStationAllList[i].priceLabel
+                    if (priceLabel != null && couponList.isNotEmpty()) {
+                        //获取可用优惠券
+                        val isSupportCouponList =
+                            getCanUseCouponForStation(currentStationAllList[i].stationId)
+                        val jsList = JsUtil.insetJsList2(
+                            priceLabel.totalMoney.toString(),
+                            priceLabel.preferentialMoney.toString(),
+                            currentStationAllList[i].countryPrice,
+                            currentStationAllList[i].stationPrice,
+                            currentStationAllList[i].price,
+                            Gson().toJson(isSupportCouponList)
+                        )
+                        val jsJson = couponMoneyText?.let {
+                            activity?.let { it1 ->
+                                JsUtil.runScript(
+                                    it,
+                                    "calculateMoney",
+                                    jsList.toArray(),
+                                    it1.classLoader
+                                )
+                            }
+                        }
+                        if (!TextUtils.isEmpty(jsJson)) {
+                            val jsonObject = JSONObject(jsJson)
+                            val discountPrice = jsonObject.get("discountPrice")
+                            currentStationAllList[i].discountPrice = discountPrice.toString()
+                            val isUseCoupon = jsonObject.get("isUseCoupon") as Int
+                            currentStationAllList[i].isUseCoupon = isUseCoupon
+                        }
+                    }
+                } catch (e: Exception) {
+                    DebugLog.i("获取优惠券：$e")
+                }
+            }
+
+            stationListAdapter?.setSortType(sortSelectIndex, hasOrder, isNewUserPrice)
+            it.onNext("来了 ")
+            it.onComplete()
+        }.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe({
+                DebugLog.d("str  = "+it)
+            }, {
+                DebugLog.d("throwable = " + it.message + " - " + it.printStackTrace())
+            }, {
+                stationListAdapter?.notifyDataSetChanged()
+            })
+
+
+    }
+
+
+
+
+           private fun getStationList2(response: String) {
+               try {
+                   val defaultOilId =
+                       SPUtils.get(activity, Constants.SELCTED_FREQUENTLY_USED_OIL_TYPE, "1") as String
+                   val gson = Gson()
+                   val newStationListBean: NewStationListBean = gson.fromJson(
+                       response,
+                       NewStationListBean::class.java
+                   )
+                   //置空
+                   SPUtils.put(activity, "queryStationList", "")
+                   if (newStationListBean.code == "200") {
+                       newStationListData = newStationListBean.data
+                   } else {
+                       getStationList()
+                   }
+                   if (newStationListData != null) {
+                        val carType = newStationListData!!.carType
+                       //保存返回的最优身份
+                       if (carType != null) {
+                           val edit = Config(activity).edit()
+                           edit.putInt(Constants.CarType, carType)
+                           edit.apply()
+                       }
+                       getBannerData()
+                       val home_operation = SPUtils.get(activity, "home_operation", "") as String
+                       if(!TextUtils.isEmpty(home_operation)){
+                           val homeBannerbean: HomeBannerBean = gson.fromJson(
+                               home_operation,
+                               HomeBannerBean::class.java
+                           )
+                           operationData = homeBannerbean.data
+                           refreshUI()
+                       }else{
+                           //运营广告
+                           getHomeOperationDialog()//统计次数
+                       }
+                       //获取开屏广告
+                       getSplashAdData(newStationListData?.carType.toString())
+                       val newVersion = SPUtils.get(activity, "new_version", "") as String
+                       if(!TextUtils.isEmpty(newVersion)){
+                           val updateBean: UpdateBean = gson.fromJson(
+                               newVersion,
+                               UpdateBean::class.java
+                           )
+                           mUpdateBean = updateBean.data
+                           refreshUI()
+                       }else{
+                           //检查升级
+                           checkNewVersion()//统计次数
+                       }
+                       getCouponList(defaultOilId)//统计次数
+                       getOilgoldData()
+                   }
+
+               } catch (e: Exception) {
+                   DebugLog.d("e = " + e.printStackTrace())
+               }
+            }
 
 
 

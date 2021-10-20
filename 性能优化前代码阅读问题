@@ -5,7 +5,7 @@
 4.获取运营广告弹框信息。【统计次数】                              /app/index/getIndexAlerts;                   326ms
 5.根据定位结果进行请求获取油站列表，再根据身份获取开屏广告信息。      /app/index/app/adverts;                       369ms
 6.检查版本更新【统计次数】                                     /app/index/getDownloadJob                      152ms
-7.获取优惠卷【统计次数】                                      /app/coupon/get/coupon/objects/                 169ms
+7.获取优惠券【统计次数】                                      /app/coupon/get/coupon/objects/                 169ms
 8.获取加油金账号信息                                        /app/account/queryIndexOilgoldAccountInfo         54ms
 统计三个接口请求结束后刷新UI
 参数一：列表数据
@@ -21,7 +21,26 @@ mView.onResponseSuccess(newStationListData, mUpdateBean, operationData, isSwitch
 /app/index/deviceInfo/recordDeviceInfo   //推送上传注册
 app/userManage/updateCoordinate         //发送广播注册
 
-√
+
+主界面涉及的请求：
+1./app/index/deviceInfo/recordDeviceInfo              推送注册
+2./app/myPage/getMyInfoApp/{sessionKey}/{timestamp}   获取用户信息
+3./app/eapi/queryUserLifeGuide                        底部菜单标签功能
+
+
+为什么只能在开屏广告请求
+
+因为权限问题，需要授权才能定位。
+0.油站列表需要定位信息。
+1.运营广告需要定位信息。
+2.版本更新需要定位信息。
+3.优惠券需要油品常用ID。
+
+建议将  优惠券 和 版本更新 请求接口放在启动也获取缓存。
+
+
+
+油站列表 运营广告 版本更新 优惠券
 
 登陆 验证码 创建订单
 
