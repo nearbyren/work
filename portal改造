@@ -37,13 +37,10 @@ https://dev.ejiayou.com/gateway/ejy-portal-service/app/myPage/getUserInfoApp/   
 https://dev.ejiayou.com/eapi/v2/app/other_interests/ycpd/store_list?t=1633762405355
 
 
-无法查找的接口
 
 
 /v1/adConversion/byteDance/callBack
 /oreo/rs/order/create/v2/         老界面 支付界面生成订单
-/oreo/get_order_pay_status/v1/    支付成功 回调接口
-/eapi/v1/app/pay_over_ad/inline   支付成功 查询广告
 /oreo/rs/uploadIdCard/v1/         身份证上传
 /oreo/rs/map/station/list/v1/     老油站地图获取地图油站图标
 /v1/message/noticeEY.do           收集支付状态信息 接口
@@ -60,7 +57,5 @@ https://dev.ejiayou.com/eapi/v2/app/other_interests/ycpd/store_list?t=1633762405
 /oreo/payment/options/v1/{sessionKey}/{timeMillis}    确定订单界面 获取支付列表
 /v1/station/guide               获取首页显示新手分享数据和教你省钱 老接口ui 无法查找
 /oreo/user/register/status/v1/{sessionKey}/{timeMillis}   油站详情 老Ui 获取用户认证状态 无法查找
-/oreo/scanCode/oilGunInfo/venus/{sessionKey}/{timeMillis}
 /oreo/scanCode/oilGunInfo/v1/         老油站详情UI 去支付
-/oreo/rs/loginGetSession/v1/
 /v1/station/detail      老油站详情UI 获取详情页数据
