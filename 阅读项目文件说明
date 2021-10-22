@@ -5,8 +5,7 @@ activity_choose_pay_way2 确认订单与支付 共用布局
 
 
 
-支付完成广告弹框
-支付成功通知服务端
+
 
 
 扫码二维码的时候会识别账号类型
@@ -86,3 +85,136 @@ AuditingStateActivity           身份审核中
 BindWXActivity                  绑定微信
 ChooseOilTypeActivity           非私家车
 ChoosePayWayActivity            支付订单
+
+
+
+
+
+
+
+
+private static void Readme() {
+    /**
+     *
+     * 据统计在使用的界面
+     * 开屏倒计时广告
+     * @see net.iusky.yijiayou.activity.fragments.SplashActivity
+     *
+     * @see net.iusky.yijiayou.activity.fragments.SplashWebViewActivity
+     * 开屏启动页
+     * @see net.iusky.yijiayou.activity.LoadActivity
+     *
+     * 主界面
+     * @see net.iusky.yijiayou.ktactivity.KMainActivity
+     * 首页
+     * @see net.iusky.yijiayou.kfragment.StationFragment2
+     * 首页 tab 1
+     * @see net.iusky.yijiayou.kfragment.KStationFragment
+     * 首页 tab 2-3
+     * @see net.iusky.yijiayou.kfragment.KHomeTabFragment
+     * 车主权益
+     * @see net.iusky.yijiayou.kfragment.HomeMidFragment
+     * 我的
+     * @see net.iusky.yijiayou.kfragment.MyFragment
+     * 油站地图
+     * @see net.iusky.yijiayou.StationMapModeActivity
+     * 扫一扫
+     * @see net.iusky.yijiayou.activity.ScanWindow
+     * 油站详情
+     * @see net.iusky.yijiayou.ktactivity.KStationDetailActivity2
+     * 确认订单
+     * @see net.iusky.yijiayou.ktactivity.KChoosePayWayActivity2
+     * 支付
+     * @see net.iusky.yijiayou.ktactivity.KChoosePayWayActivity
+     * 优惠券
+     * @see net.iusky.yijiayou.ktactivity.KtChooseCouponActivity
+     * 支付成功页
+     * @see net.iusky.yijiayou.activity.EvaluateActivity
+     * 支付成功页网页广告弹框
+     * @see net.iusky.yijiayou.activity.webview.AdvertisementDialogActivity
+     * 身份证上传找回密码
+     * @see net.iusky.yijiayou.activity.UpLoadOilCardPicActivity2
+     * 申请退款
+     * @see net.iusky.yijiayou.ktactivity.RequestRefundActivity
+     * 加油记录
+     * @see net.iusky.yijiayou.ktactivity.OrderHistoryActivity
+     * 收藏油站
+     * @see net.iusky.yijiayou.ktactivity.KFavoritesListActivity
+     * 消息中心
+     * @see net.iusky.yijiayou.ktactivity.MessageCenterActivity
+     * 个人资料
+     * @see net.iusky.yijiayou.ktactivity.UserInfoActivity
+     * 昵称修改
+     * @see net.iusky.yijiayou.ktactivity.ChangeNickNameActivity
+     * 发票抬头
+     * @see net.iusky.yijiayou.activity.ChangeInvoiceTitleActivity
+     * 添加/修改发票抬头
+     * @see net.iusky.yijiayou.activity.WriteInvoiceTitleActivity
+     * 当前身份类型
+     * @see net.iusky.yijiayou.activity.PartnerIdentityActivity
+     * 身份提交成功页
+     * @see net.iusky.yijiayou.ktactivity.SubmitSuccessActivity
+     * 设置
+     * @see net.iusky.yijiayou.ktactivity.KtSettingActivity
+     * 手机号绑定
+     * @see net.iusky.yijiayou.ktactivity.KtBindPhoneAccountActivity
+     * 微信绑定
+     * @see net.iusky.yijiayou.ktactivity.KtBindWxActivity
+     * 关于我们
+     * @see net.iusky.yijiayou.ktactivity.KotlinAboutActivity
+     * 个人认证
+     * @see net.iusky.yijiayou.activity.QualifyCenterActivity
+     * 电子油卡支付密码
+     * @see net.iusky.yijiayou.activity.SetPayPasswordActivity
+     * 本油站不允许在油机旁使用手机 请到柜台扫描
+     * @see net.iusky.yijiayou.ktactivity.SwipeControlActivity
+     * 驾驶证
+     * @see net.iusky.yijiayou.ktactivity.KOnlineCarActivity
+     * 选择认证平台[优步 首汽 神州 其它]
+     * @see net.iusky.yijiayou.ktactivity.KOnlineCarTwoActivity
+     * 车主联盟 普通与极速审核提交
+     * @see net.iusky.yijiayou.ktactivity.KPrivateCarTwoActivity
+     * 用户身份审核中
+     * @see net.iusky.yijiayou.ktactivity.KReviewSuccessActivity
+     * 订单详情
+     * @see net.iusky.yijiayou.ktactivity.OrderDetailActivity
+     * 微信分享成功跳转的网页
+     * @see net.iusky.yijiayou.activity.FloatWebView
+     * 油站地图导航
+     * @see net.iusky.yijiayou.activity.GDNavActivity
+     * 特殊webview在baseWeb基类
+     * @see net.iusky.yijiayou.ktactivity.UrlActivity
+     * @see
+     * @see
+     * 以下为老UI的
+     * 老UI 支付成功后的提醒页
+     * @see net.iusky.yijiayou.activity.FreeChargeActivity
+     * 油站详情
+     * @see net.iusky.yijiayou.ktactivity.KStationDetailActivity
+     * 油站地图
+     * @see net.iusky.yijiayou.activity.StationMapActivity
+     * 确认支付
+     * @see net.iusky.yijiayou.ktactivity.KPayActivity
+     * 确认订单
+     * @see net.iusky.yijiayou.ktactivity.KInputPriceActivity
+     * 完善资料
+     * @see net.iusky.yijiayou.ktactivity.KEnterpriseCooperationActivity
+     * 货车认证 行驶证认证
+     * @see net.iusky.yijiayou.activity.TruckCertificationActivity
+     * 资料提交成功
+     * @see net.iusky.yijiayou.ktactivity.SubmitSuccessActivity
+     * 支付完成页
+     * @see net.iusky.yijiayou.ktactivity.KPaySuccessActivity
+     * 我的优惠券网页
+     * @see net.iusky.yijiayou.ktactivity.MyCouponWebActivity
+     * 身份审核中
+     * @see net.iusky.yijiayou.activity.AuditingStateActivity
+     * 微信绑定
+     * @see net.iusky.yijiayou.activity.BindWXActivity
+     * 油号选择
+     * @see net.iusky.yijiayou.activity.ChooseOilTypeActivity
+     * 支付订单
+     * @see net.iusky.yijiayou.activity.ChoosePayWayActivity
+     *
+     */
+}
