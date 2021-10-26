@@ -45,7 +45,8 @@ PayEvaluateActivity       其他评价
 EvaluateSuccessActivity1  评价成功
 KFavoritesListActivity   收藏油站
 KStationDetailActivity2  油站详情      fromSource 来自哪个入口
-QualifyCenterActivity    个人认证
+QualifyCenterActivity    个人认证   油卡支付密码 需要个人身份认真
+ModifyPayPasswordActivity 修改油卡密码
 KOnlineCarActivity       驾驶证
 KOnlineCarTwoActivity    选择认证平台[优步 首汽 神州 其它]
 KPrivateCarTwoActivity   提示已加入的认证平台
@@ -132,7 +133,7 @@ private static void Readme() {
      * @see net.iusky.yijiayou.activity.EvaluateActivity
      * 支付成功页网页广告弹框
      * @see net.iusky.yijiayou.activity.webview.AdvertisementDialogActivity
-     * 身份证上传找回密码
+     * 身份证上传找回密码 油卡密码忘记
      * @see net.iusky.yijiayou.activity.UpLoadOilCardPicActivity2
      * 申请退款
      * @see net.iusky.yijiayou.ktactivity.RequestRefundActivity
@@ -162,10 +163,12 @@ private static void Readme() {
      * @see net.iusky.yijiayou.ktactivity.KtBindWxActivity
      * 关于我们
      * @see net.iusky.yijiayou.ktactivity.KotlinAboutActivity
-     * 个人认证
+     * 个人认证 油卡支付密码 需要个人身份认真
      * @see net.iusky.yijiayou.activity.QualifyCenterActivity
      * 电子油卡支付密码
      * @see net.iusky.yijiayou.activity.SetPayPasswordActivity
+     * 修改油卡密码
+     * @see net.iusky.yijiayou.activity.ModifyPayPasswordActivity
      * 本油站不允许在油机旁使用手机 请到柜台扫描
      * @see net.iusky.yijiayou.ktactivity.SwipeControlActivity
      * 驾驶证

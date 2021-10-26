@@ -1,0 +1,476 @@
+公共参数
+{
+	"versionBuild": "181",// APP版本code
+	"carType": "26", // 当前车类型  身份类型
+	"car_type": "26",// 当前车类型  身份类型
+	"osType": "2", //  1->苹果，2->安卓，3->微信公众号，4->运营端，5->小程序，6->P端
+	"os_type": "2",//  1->苹果，2->安卓，3->微信公众号，4->运营端，5->小程序，6->P端
+	"versionId": "6.4.1", //  APP版本name
+	"version": "6.4.1",//  APP版本name
+	"logLongitude": "113.94814",//定位经度
+	"logLatitude": "22.561524",//定位纬度
+	"longitude": "113.94814",//定位经度
+	"latitude": "22.561524",//定位纬度
+	"cityName": "深圳市",//定位城市名称
+	"logCityName": "深圳市",//定位城市名称
+	//以下三个参数则登录才有
+	"userId": "2199123", //  用户ID
+	"user_id": "2199123" // 用户ID
+	"telephone": "15236183971",//  手机号
+}
+
+1./app/myPage/appLogin //登陆
+{
+"accessToken":"一键登录token",
+"userPhone":"13000000000",//手机号
+"verifyNumber":"111" //验证码
+}
+将已将map转换成json 并加密
+{
+	"type": "W9p47cNBx7d0gc3IIoHoZ0C3TmozJXWaBeWYYSEMWc5kP3d+bKGdkJ0HE5ovQJNMtQKzobI/YAMlAApPDlu4RyeutFwP8lzjKe8jx7Rd+3fZl+l8v2db+aPIo8CTYA0/asjQXanS6FznZKtcyUXL9bJzSMacV7tWP0CT+HJO9bifBosHeQ7g3D+wQk9zuI9s"
+}
+
+
+01.首页
+1./app/index/deviceInfo/recordDeviceInfo //推送上传registerId
+{
+	"platformType": "3",  // 手机类型 JPUSH = 1, XIAOMI = 2, HUAWEI = 3, VIVO = 4, OPPO = 5;
+	"regId": "0862337031296075300005579800CN01",//  推送tokenID
+}
+2./app/index/app/adverts //开屏广告
+{
+	"advertTypeId": "1", // 1 开屏广告
+}
+3./app/index/queryStationList //油站列表
+{
+	"latitude": "22.561563",
+	"longitude": "113.948175",
+	"oilId": "1" // 油品ID 1-92 2-95 3-98
+}
+4./app/index/getIndexBanners //获取首页轮播图
+{}
+5./app/index/getIndexAlerts //获取运动首页弹窗和浮窗
+{}
+6./app/index/getDownloadJob //检查更新get
+
+
+7./app/index/seckillAdLink //首页web广告 APIHomeWebAd
+{
+	"oilId": "1",// 油品ID 1-92 2-95 3-98
+}
+8./app/eapi/queryUserLifeGuide //底部tab车主权益红点判断
+{}
+9./app/eapi/otherInterests //(车生活)获取引导弹窗，送会员，首次易豆
+
+10./app/myPage/getMyInfoApp/{sessionKey}/{timestamp}//获取用户信息
+{}
+
+11./app/userManage/updateCoordinate //上传用户经纬度，等基本信息
+{
+	"source": "1", // 1，是正常进入，2是push进入
+	"imei": "00000000-0120-7529-876a-d0ea00000030",//手机序列号
+}
+
+12./app/coupon/get/coupon/objects/{sessionKey}/{timestamp} //获取优惠券接口
+{
+	"oilId": "1",//油品ID
+}
+13./app/account/queryIndexOilgoldAccountInfo//查询首页加油金账户信息
+{}
+
+
+02.详情页面：
+1./app/activity/hasXYActivity //判断是否有XY活动接口
+{
+	"stationId": "22224036",//油站ID
+	"oilId": "2"//油品ID
+}
+2./app/activity/opportunityActivity //查看有没有可获取的资格活动接口
+{
+	"productType": "0", //Android 默认固定
+  "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+	"stationId": "22224062",//油站ID
+	"oilId": "2", //油品ID
+  "oil_id": "2",//油品ID
+	"station_id": "22224062", //油站ID
+}
+3./app/station/get/station/detail/info 获取油站详情接口
+{
+	"productType": "0", //Android 默认固定
+  "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+	"stationId": "22224062",//油站ID
+	"oilId": "2", //油品ID
+  "oil_id": "2",//油品ID
+	"station_id": "22224062", //油站ID
+}
+4./app/station/queryOilGunInfo/venus/{sessionKey}/{timestamp} //油枪信息
+{
+	"productType": "0", //Android 默认固定
+  "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+	"stationId": "22224062",//油站ID
+	"oilId": "2", //油品ID
+  "oil_id": "2",//油品ID
+	"station_id": "22224062", //油站ID
+}
+5./app/station/station/orders  //获取订单轮播数据
+{
+	"productType": "0", //Android 默认固定
+  "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+	"stationId": "22224062",//油站ID
+	"oilId": "2", //油品ID
+  "oil_id": "2",//油品ID
+	"station_id": "22224062", //油站ID
+}
+6./app/station/get/station/coupons //web广告与优惠
+{
+	"stationId": "22224062",//油站ID
+}
+7./app/station/get/stationEvaluateList //获取油站评论数据接口
+{
+	"stationId": "22224062",//油站ID
+}
+8./app/order/scanCode/oilPrice/calculate/{version}/{sessionKey}/{timestamp} //订单价格计算
+{
+	"originalCost": "100",//加油金额
+	"stationId": "22224062",//油站ID
+	"oilId": "2",//油品ID
+	"fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+}
+9./app/station/scanCode/oilPriceInfo/venus/{sessionKey}/{timestamp} //获取油价
+{
+	"productType": "0", //Android 默认固定
+  "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+	"stationId": "22224062",//油站ID
+	"oilId": "2", //油品ID
+  "oil_id": "2",//油品ID
+	"station_id": "22224062", //油站ID
+}
+10./app/coupon/get/coupon/objects/{sessionKey}/{timestamp} //获取优惠券接口
+{
+	"oilId": "1",//油品ID
+}
+11./app/station/favorite/station 收藏
+{
+	"stationId": "22224062",//油站ID
+	"operationType": "1"//1 : 已收藏   0: 未收藏
+}
+12./app/index/app/service/timetamp 获取服务器时间 Get
+
+03.确定订单
+1./app/order/get/pay/discount/{sessionKey}/{timestamp} //获取优惠券列表和EPLUS接口
+{
+	"oilMass": "14.29",//可选 油升
+	"stationId": "22224062", //油站ID
+	"oilId": "2",// 油品ID 1-92 2-95 3-98
+	"fromSource": "5",//1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+}
+2./app/order/get/payment/list/{sessionKey}/{timestamp} //获取支付方式列表
+{
+	"originalCost": "100",//加油金额
+	"yiDouPayFlag": "1",//是否使用加油金 0 不使用  1 使用
+	"useCouponId": "0",//优惠ID 是否使用eplusRule
+	"stationId": "22224062",//油站ID
+	"oilId": "2",// 油品ID 1-92 2-95 3-98
+	"oilgunId": "206594",//油枪ID
+	"type": "-1",//默认-1
+	"fromSource": "5",//1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+  "eplusRuleId":""//可选 是否是会员
+  "useEplusCouponsTag":""//可选//虚拟优惠//0.不用 1.用  根据返回的参数 recommendTag ==1 则自动使用 或 则不用。 然后 eplusRuleId =  置 -1
+}
+3./app/station/generic/info/{sessionKey}/{timestamp} //获取无卡支付列表
+{
+ "payType":"69",//支付类型  1.微信 2.支付宝  69.银联 70.农行 80.工商 91.小浦发 99.中信 102.建行 103.中国银行 else = 无卡支付 -1
+ "bankType": "1"//1 或者 2 是无卡支付 0 是其他支付
+}
+4./app/station/generic/order/sub/v1/{sessionKey}/{timestamp}  无银行卡支付 发送验证码
+{
+ "orderId":"69",//订单ID
+ "password": ""//支付密码
+ "payType": "1"//支付类型 1.微信 2.支付宝  69.银联 70.农行 80.工商 91.小浦发 99.中信 102.建行 103.中国银行 else = 无卡支付 -1
+ "bankType": "1"//1 或者 2 是无卡支付 0 是其他支付
+}
+
+5./app/eapi/actSeniority 获取分享之后秒杀资格 【2./app/activity/opportunityActivity //查看有没有可获取的资格活动接口】
+{
+ "money_resources_sub_id":"111",//查看有没有可获取的资格活动接口 的 act_id
+}
+
+04.支付
+1./app/order/build/{sessionKey}/{timestamp}  //创建订单
+{
+"payType":"69",//支付类型  1.微信 2.支付宝  69.银联 70.农行 80.工商 91.小浦发 99.中信 102.建行 103.中国银行 else = 无卡支付 -1
+"productType":"1",//默认1
+"stationId":"22224062",//油站ID
+"oilId":"2",// 油品ID 1-92 2-95 3-98
+"oilgunId":"206594",//油枪ID
+"originalCost":"100",//充值金额
+"orderSum":"68.65", //支付总金额 换算各种优惠后的金额
+"fromSource":"1",//1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+"yiDouPayFlag":"",//是否使用加油金 0 不使用  1 使用
+"userCouponId":"",//优惠ID 是否使用eplusRule
+"createOrderCarType":"",//  当前车类型  订单身份类型
+"eplusRuleId":"",//可选 是否是会员
+"useEplusCouponsTag":"",//可选//虚拟优惠//0.不用 1.用  根据返回的参数 recommendTag ==1 则自动使用 或 则不用。 然后 eplusRuleId =  置 -1
+"filterSource":"1",//1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+"orderType":"1",//默认1
+"freeOrderActivity":"1",//默认1
+}
+将已将map转换成json 并加密
+{
+	"type": "7UW2T5moqi9xvJRi5teaXYT+fRMVytwoGRDlZI1wN4AKMwAI3c0vfr6v2LGPBc0uMEdMd9/34oFCKDNri+aojL1LsMJki6agzMH9xHk1j96Fy4hxvr58b/wyVf1LJJFGNZvKHL0LL6XkKdyLOujbB+BdimnpHR/uKDG71yOfiaQEesjXjAfDjCcC3m75Xy+QbYhMhMU4/1Eujjowhn0J1xiwXS83qXIye87w8ErX5GzyprK0w9NVV74tWjX7Rl1Zj/u81P8NnXVfKkHV8oRVYDGv6BAmmnIrlcEAhykDSl+n80rlXhxOUEgxn81Wp6a9mW28HPYpb0ENLSo/EAr/JPJ3S1lhF3G8a8tkF+WVC0H7BXN9/UR8LvhtFPJ0JHDI81L2IFV4ScFhMG78yWnTEP16uaWmoF4nlQSwfdjZ8w3x2XaC7wOya7Y0LiD0RZ+Z07MA0iBlardCZD2cVcKt1hHNEA0hmmZarUZeH0EUiOURuQlWG6yzlaPnGd+uHnV7M2QGT2fj+XoDFxYr3A2yVjBppl2/9RtCMV179XxEioBKnJQdFyf5HKzhsQ2+d8nhypSfyFXaBoQusl395alRqZaRXHQSh1lNWFL8eOXkHqC2xKI1XNm6CfTiXO8d/Pnt9X+9QmU7tj7tqJXOGhi15j2G9m4uzz0Pp58HSZUQY3kCbQSWlr97alZ8YXcCzszV9dH7y7oZktHf1RyvAJq5+GO6gv6dVjig9hHkxdrlGJtjNcKuTR4WipP2DuwFU0V+"
+}
+
+
+
+2./app/order/pay/api/gateway //工商创建订单
+{
+	"sign": "1635150212781",//当前时间
+	"reqParamStr": {
+		"orderId": "9110000020158023"//订单号
+	},
+	"timestamp": "1635150212781",//当前时间
+	"methodName": "EJIAYOU_TRADE_PAY",//默认 EJIAYOU_TRADE_PAY
+	"nonce": "1635150212781"//当前时间
+}
+
+3./app/user/user/digital/info/{sessionKey}/{timestamp}/{userId} 获取建行账号
+
+4./app/station/generic/info/{sessionKey}/{timestamp} //获取无卡支付列表
+{
+ "payType":"69",//支付类型  1.微信 2.支付宝  69.银联 70.农行 80.工商 91.小浦发 99.中信 102.建行 103.中国银行 else = 无卡支付 -1
+ "bankType": "1"//1 或者 2
+}
+
+5./app/userManage/activityPopup  //支付完成活动弹窗
+{
+ "order_id":"", //订单ID
+}
+6./app/comment/evaluate/commitEvaluation   //提交评论  其他评价 二次评价
+{
+
+	"order_id": "9110000020158114",
+	"all_point": "1-5",//评论等级
+	"comment": "",//其他说明
+	"type": "1",//是否为第一次评论，是为1，否则为2
+}
+二次评价数据
+{
+	"order_id": "9110000020158114",
+	"all_point": "",
+	"comment": "爱居兔",
+}
+
+7./app/myPage/checkedUserIdCard/   油卡设置实名认证
+{
+ "name":"", //姓名
+ "cardNo":"", //身份证证号
+}
+8./app/myPage/changePassWord/    设置油卡密码
+{
+ "newPwd":"", //新密码
+ "type":"2", // 2.设置密码
+ "oldPwd":"", //旧密码
+}
+校验油卡密码
+{
+ "newPwd":"", //新密码
+ "type":"3", //3.校验密码
+ "oldPwd":"", //旧密码
+}
+9./app/myPage/uploadUserIdCard/  上传身份证信息 找回支付密码
+{
+	"frontPhoto": "https://img.ejiayou.com/upload/2021/10/434a3654-2d9c-431c-8ade-07e1181194e0-1635221356434.jpg", //正面
+	"oppositePhoto": "https://img.ejiayou.com/upload/2021/10/0024587d-27d1-4dfd-8ea7-3c58a5dc0881-1635221357002.jpg"//反面
+}
+
+10./app/comment/getEvaluateInfo  //支付成功后，获取油站信息和评论
+{
+	"orderId": "9110000020158114",//订单ID
+	"flag": "1" //stationId油站ID>3 传 0 或者 传 1
+}
+
+11./app/comment/defaultActivityChannel //活动默认通道
+{
+	"channel_no": "bp_eva",//
+	"source_type": "2", //
+  "filter_source": "",//
+	"choose_car_type": "", //
+  "is_new": "",//
+  "mobile": "", //
+  "param3": "",//
+}
+
+
+
+12./app/comment/comment/getAllCommentList  //点击其他 评论页面进行数据查询
+{
+	"orderId": "9110000020158114",
+}
+
+
+13./app/myPage/checkUserIdentity/{sessionKey}/{timestamp}   设置密码时检查用户状态 Get
+
+14./app/eapi/payOverAdInline 支付完成广告弹框
+{
+	"order_no": "1111", //订单ID
+}
+15./app/order/epay_order/v1/{sessionKey}/{timestamp}  油卡储蓄卡支付
+{
+ "orderId":"69",//订单ID
+ "password": ""//支付密码
+ "type": "1"//支付类型  1.微信 2.支付宝  69.银联 70.农行 80.工商 91.小浦发 99.中信 102.建行 103.中国银行 else = 无卡支付 -1
+}
+
+16./app/order/get_order_pay_status/v1/{sessionKey}/{orderId}/{timestamp}  支付成功通知服务器 GET
+
+
+05.我的界面
+1./app/myPage/getMyInfoApp/{sessionKey}/{timestamp}  //获取用户信息
+{}
+2./app/eapi/queryAds  //获取广告图
+{}
+3./app/eapi/queryEPlusAds //获取eplus广告图
+{}
+4./app/myPage/getUserHistoryOrder/    //获取加油记录
+{
+	"page": "1"//页数
+}
+5.app/order/orderInfo/getUserOrderDetail //加油订单详情
+{
+	"orderId": "1"//订单ID
+}
+6./app/myPage/getFavoriteStationList //获取收藏油站列表
+{
+	"pageSize": "10", //每页条数
+	"pageIndex": "0"//页数
+}
+7./app/myPage/getMyMessageApp    //获取用户消息列表
+{}
+8./app/userManage/cancelRedDot    //取消副业赚大钱的红点提示
+{}
+9./app/user/user/digital/info/{sessionKey}/{timestamp}  //创建建行开户
+{
+	"openId": "10",//建行返回的eventId
+}
+10./app/user/user/digital/info/{sessionKey}/{timestamp}/{userId} //获取建行开户  Get
+
+
+11./app/user/user/digital/info/{sessionKey}/{timestamp}/{userId} //删除建行开户  DELETE
+
+
+06.个人资料
+1./app/userManage/getCarTypeIdentity/ //申请营运车身份 Get
+
+
+2.http://upload.ejiayou.com/uploadPic/upload 上传头像返回地址
+
+3./app/userManage/updateUserInfoApp    //修改用户用户基本信息，性别，昵称，头像等
+修改头像
+{
+	"headImgUpd": "1",//默认值
+	"headImg": "https://img.ejiayou.com/upload/2021/10/38862bf4-ea26-474b-8caa-d0409db2155e-1635212767067.jpg",
+}
+修改昵称
+{
+	"userNameUpd": "1",//默认值
+	"userName": "阿鲁",
+}
+修改性别
+{
+	"sex": "1",//1.男 2.女
+	"sexUpd": "1",//默认值
+}
+修改生日
+{
+	"birthDate": "1992/01/24",
+	"birthDateUpd": "1"//默认值
+}
+
+4./app/userManage/userInvoice //发票管理查询
+{
+	"oper": "sel",//查询操作 默认值
+}
+5./app/userManage/userInvoice  添加
+{
+	"invoice_number": "1",//发票纳税人号//可选 单位报销必填
+	"oper": "add",//添加操作 默认值
+	"invoice_code": "1"//发票抬头
+}
+6./app/userManage/userInvoice  删除
+{
+	"oper": "del",//删除操作 默认值
+  "user_invoice_id": "2164",//发票ID
+}
+7./app/userManage/userInvoice  修改
+{
+	"oper": "update",//修改操作 默认值
+  "user_invoice_id": "2164",//发票ID
+  "invoice_number": "1",//发票纳税人号//可选 单位报销必填
+  "invoice_code": "1"//发票抬头
+}
+8./app/myPage/getUserAccountInfogetRegisterType //获取注册类型
+{
+	"fromSource": "4" //来自哪个入口1. 首次登录 2. 油枪页 3. 我的头像 4. 个人资料页面 5.油站列表想要更多优惠
+}
+9./app/myPage/setSendSmsApp/ 绑定手机号码   验证码获取
+{
+	"phone": "13333333333"
+}
+10./app/myPage/updateUserPhoneApp/{sessionKey}/{timestamp}
+
+绑定手机号
+{
+	"smsCode": "1344", //验证码
+  "userPhone": "13333333333", //手机号
+  "userPhoneUpd": "1", //固定值
+  "wxUnionIDUpd": "0", //固定值
+}
+绑定微信号
+{
+	"smsCode": "1344", //验证码
+  "userPhone": "13333333333", //手机号
+  "userPhoneUpd": "0", //固定值
+  "wxUnionIDUpd": "1", //固定值
+  "weiXinInfoI": "", //微信信息对象 nickName headImagUrl unionId 三个字段的对象
+}
+11./app/userManage/checkUserAccount/{sessionKey}/{type}/{target}/{timestamp} 更换手机号，微信号前校验账号 Get
+
+
+
+
+07.地图油站
+1./app/station/station/stationList  //地图油站列表
+{
+	"oilId": "1", // 油品ID 1-92 2-95 3-98
+  "nextPage": "1", //固定值
+  "toCommonCarType":"0",//非车队是1，车队是0,改版后只有非车队  与ios同步
+}
+2./app/userManage/getSomeStationInfo //油站详情旧版
+{
+	"toCommonCarType": "0"//非车队是1，车队是0,改版后只有非车队  与ios同步
+}
+3./app/station/get/stationEvaluateList    //获取油站评论数据接口
+{
+  "stationId": "22223908"//油站ID
+}
+4./app/station/get/stationGrade 油站地图车友评价
+{
+	"stationId": "9454", //油站ID
+}
+
+1./app/index/scanCode/oilGunInfo/v1/{sessionKey}/{timestamp}  //c端油枪扫一扫接口
+{
+  "fromSource": "1",//1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+  "qrCode": "",//扫描出来的字符串
+  "type": "-1",//固定值
+}
+
+2./app/index/get/station/by/qrcode  //油站扫一扫
+{
+  "qrCode": "",//扫描出来的字符串
+}
+3./app/myPage/appSendSms/{sessionKey}/{timestamp} //登陆验证码
+{
+  "phone": "13333333333",//手机号
+  "phoneSerial": "",//手机序列号可选
+}
