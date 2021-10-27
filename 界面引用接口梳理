@@ -19,6 +19,19 @@
 	"telephone": "15236183971",//  手机号
 }
 
+1.app/userManage/getAppSession  //获取sessionkey
+{
+  "userPhoneSerial": "",  //手机序列号
+  "jpushId": "",//  Android传""
+  "userPhoneIn": "",  //手机号
+  "idType": "",//  当前车类型  身份类型
+  "carNumber": "",//  Android传""
+}
+
+1.app/index/vip/integral 添加待领取积分任务.behaviorId: 1表示加油，2表示登陆，3表示分享
+{
+	"behaviorId": "2",
+}
 1./app/myPage/appLogin //登陆
 {
 "accessToken":"一键登录token",
@@ -30,6 +43,10 @@
 	"type": "W9p47cNBx7d0gc3IIoHoZ0C3TmozJXWaBeWYYSEMWc5kP3d+bKGdkJ0HE5ovQJNMtQKzobI/YAMlAApPDlu4RyeutFwP8lzjKe8jx7Rd+3fZl+l8v2db+aPIo8CTYA0/asjQXanS6FznZKtcyUXL9bJzSMacV7tWP0CT+HJO9bifBosHeQ7g3D+wQk9zuI9s"
 }
 
+1.app/account/presentIntegral 添加待领取积分任务
+{
+  "behaviorId": "2",//behaviorId: 1表示加油，2表示登陆，3表示分享
+}
 
 01.首页
 1./app/index/deviceInfo/recordDeviceInfo //推送上传registerId
@@ -76,16 +93,18 @@
 	"oilId": "1",//油品ID
 }
 13./app/account/queryIndexOilgoldAccountInfo//查询首页加油金账户信息
-{}
-
-
-02.详情页面：
-1./app/activity/hasXYActivity //判断是否有XY活动接口
+{
+	"oilId": "1",//油品ID
+}
+14./app/activity/hasXYActivity //判断是否有XY活动接口
 {
 	"stationId": "22224036",//油站ID
 	"oilId": "2"//油品ID
 }
-2./app/activity/opportunityActivity //查看有没有可获取的资格活动接口
+
+02.详情页面：
+
+1./app/activity/opportunityActivity //查看有没有可获取的资格活动接口
 {
 	"productType": "0", //Android 默认固定
   "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
@@ -94,7 +113,16 @@
   "oil_id": "2",//油品ID
 	"station_id": "22224062", //油站ID
 }
-3./app/station/get/station/detail/info 获取油站详情接口
+2./app/station/get/station/detail/info 获取油站详情接口
+{
+	"productType": "0", //Android 默认固定
+  "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页//代码备注 ios 6=短信 7=push
+	"stationId": "22224062",//油站ID
+	"oilId": "2", //油品ID
+  "oil_id": "2",//油品ID
+	"station_id": "22224062", //油站ID
+}
+3./app/station/queryOilGunInfo/venus/{sessionKey}/{timestamp} //油枪信息
 {
 	"productType": "0", //Android 默认固定
   "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
@@ -103,7 +131,7 @@
   "oil_id": "2",//油品ID
 	"station_id": "22224062", //油站ID
 }
-4./app/station/queryOilGunInfo/venus/{sessionKey}/{timestamp} //油枪信息
+4./app/station/station/orders  //获取订单轮播数据
 {
 	"productType": "0", //Android 默认固定
   "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
@@ -112,31 +140,22 @@
   "oil_id": "2",//油品ID
 	"station_id": "22224062", //油站ID
 }
-5./app/station/station/orders  //获取订单轮播数据
-{
-	"productType": "0", //Android 默认固定
-  "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
-	"stationId": "22224062",//油站ID
-	"oilId": "2", //油品ID
-  "oil_id": "2",//油品ID
-	"station_id": "22224062", //油站ID
-}
-6./app/station/get/station/coupons //web广告与优惠
+5./app/station/get/station/coupons //web广告与优惠
 {
 	"stationId": "22224062",//油站ID
 }
-7./app/station/get/stationEvaluateList //获取油站评论数据接口
+6./app/station/get/stationEvaluateList //获取油站评论数据接口
 {
 	"stationId": "22224062",//油站ID
 }
-8./app/order/scanCode/oilPrice/calculate/{version}/{sessionKey}/{timestamp} //订单价格计算
+7./app/order/scanCode/oilPrice/calculate/{version}/{sessionKey}/{timestamp} //订单价格计算
 {
 	"originalCost": "100",//加油金额
 	"stationId": "22224062",//油站ID
 	"oilId": "2",//油品ID
 	"fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
 }
-9./app/station/scanCode/oilPriceInfo/venus/{sessionKey}/{timestamp} //获取油价
+8./app/station/scanCode/oilPriceInfo/venus/{sessionKey}/{timestamp} //获取油价
 {
 	"productType": "0", //Android 默认固定
   "fromSource": "5", //1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
@@ -145,16 +164,16 @@
   "oil_id": "2",//油品ID
 	"station_id": "22224062", //油站ID
 }
-10./app/coupon/get/coupon/objects/{sessionKey}/{timestamp} //获取优惠券接口
+9./app/coupon/get/coupon/objects/{sessionKey}/{timestamp} //获取优惠券接口
 {
 	"oilId": "1",//油品ID
 }
-11./app/station/favorite/station 收藏
+10./app/station/favorite/station 收藏
 {
 	"stationId": "22224062",//油站ID
 	"operationType": "1"//1 : 已收藏   0: 未收藏
 }
-12./app/index/app/service/timetamp 获取服务器时间 Get
+11./app/index/app/service/timetamp 获取服务器时间 Get
 
 03.确定订单
 1./app/order/get/pay/discount/{sessionKey}/{timestamp} //获取优惠券列表和EPLUS接口
@@ -167,7 +186,7 @@
 2./app/order/get/payment/list/{sessionKey}/{timestamp} //获取支付方式列表
 {
 	"originalCost": "100",//加油金额
-	"yiDouPayFlag": "1",//是否使用加油金 0 不使用  1 使用
+	"yiDouPayFlag": "1",//是否使用加油金 0 不使用  1 使用 //ios 改成1默认1，之前是0
 	"useCouponId": "0",//优惠ID 是否使用eplusRule
 	"stationId": "22224062",//油站ID
 	"oilId": "2",// 油品ID 1-92 2-95 3-98
@@ -205,7 +224,7 @@
 "oilgunId":"206594",//油枪ID
 "originalCost":"100",//充值金额
 "orderSum":"68.65", //支付总金额 换算各种优惠后的金额
-"fromSource":"1",//1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+"fromSource":"1",//1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注  ios /扫码定义为1,优惠加油定义为2,一键加油定义为3 4 地图
 "yiDouPayFlag":"",//是否使用加油金 0 不使用  1 使用
 "userCouponId":"",//优惠ID 是否使用eplusRule
 "createOrderCarType":"",//  当前车类型  订单身份类型
@@ -238,7 +257,7 @@
 4./app/station/generic/info/{sessionKey}/{timestamp} //获取无卡支付列表
 {
  "payType":"69",//支付类型  1.微信 2.支付宝  69.银联 70.农行 80.工商 91.小浦发 99.中信 102.建行 103.中国银行 else = 无卡支付 -1
- "bankType": "1"//1 或者 2
+ "bankType": "1"//1 或者 2  ios //油卡支付//1为车队卡支付，2为储值卡支付 3为E卡支付
 }
 
 5./app/userManage/activityPopup  //支付完成活动弹窗
@@ -260,12 +279,12 @@
 	"comment": "爱居兔",
 }
 
-7./app/myPage/checkedUserIdCard/   油卡设置实名认证
+7./app/myPage/checkedUserIdCard/{sessionKey}/{timestamp}   油卡设置实名认证
 {
  "name":"", //姓名
  "cardNo":"", //身份证证号
 }
-8./app/myPage/changePassWord/    设置油卡密码
+8./app/myPage/changePassWord/{sessionKey}/{timestamp}    设置油卡密码
 {
  "newPwd":"", //新密码
  "type":"2", // 2.设置密码
@@ -277,7 +296,9 @@
  "type":"3", //3.校验密码
  "oldPwd":"", //旧密码
 }
-9./app/myPage/uploadUserIdCard/  上传身份证信息 找回支付密码
+9./app/userManage/checkPaymentState/ 校验油卡是否设置密码
+{}
+9./app/myPage/uploadUserIdCard/{sessionKey}/{timestamp}  上传身份证信息 找回支付密码
 {
 	"frontPhoto": "https://img.ejiayou.com/upload/2021/10/434a3654-2d9c-431c-8ade-07e1181194e0-1635221356434.jpg", //正面
 	"oppositePhoto": "https://img.ejiayou.com/upload/2021/10/0024587d-27d1-4dfd-8ea7-3c58a5dc0881-1635221357002.jpg"//反面
@@ -299,9 +320,14 @@
   "mobile": "", //
   "param3": "",//
 }
-
-
-
+12./app/userManage/checkLicenseNum  车队校验车牌号
+{
+"carNum": ""
+}
+13./app/userManage/getTimeOutRefund/{sessionKey}/{orderId}/{timestamp} //加油历史申请退款信息查询
+{
+"orderId": ""
+}
 12./app/comment/comment/getAllCommentList  //点击其他 评论页面进行数据查询
 {
 	"orderId": "9110000020158114",
@@ -323,7 +349,10 @@
 
 16./app/order/get_order_pay_status/v1/{sessionKey}/{orderId}/{timestamp}  支付成功通知服务器 GET
 
-
+17./app/userManage/userRefundApply/{sessionKey}/{timestamp} 申请退款
+{
+ "orderId":"69",//订单ID
+}
 05.我的界面
 1./app/myPage/getMyInfoApp/{sessionKey}/{timestamp}  //获取用户信息
 {}
@@ -359,10 +388,34 @@
 
 
 06.个人资料
-1./app/userManage/getCarTypeIdentity/ //申请营运车身份 Get
+1./app/userManage/getCarTypeIdentity/{sessionKey}/{timestamp} //申请营运车身份 Get
 
 
 2.http://upload.ejiayou.com/uploadPic/upload 上传头像返回地址
+
+
+3./app/myPage/getUserInfoApp/{sessionKey}/{timestamp}  //获取认证信息
+{
+	"ownerName": "",//车主姓名
+  "carNum": "",//车主身份号
+  "ocrJson": "",//图片信息
+  "fromSource": "",//1. 首次登录 2. 油枪页 3. 我的头像 4. 身份认证
+  "vehicleLicenseImage": "",//行驶证图片
+  "chooseCarType": "",//1 私家车， 5 专快车，13 柴油， 3 面包小货
+  "registerType": "1",//   //1上传图片审核注册 2自动审核注册
+  "fastAuditFlag": "",//是极速1否则0
+  "longitude": "",//
+  "latitude": "",//
+}
+
+4./app/userManage/createFastAudit/  //急速认证创建订单
+{
+	"fastRuleId": "",//是否极速ID
+  "payType": "",//支付方式
+  "applyCarType": "","3"//当前选择的车类型//货运车默认选择汽油，3：汽油货车，13：柴油货车
+
+}
+5./app/userManage/getFastAuditInfo/{sessionKey}/{timestamp} //是否支持急速审核 GET
 
 3./app/userManage/updateUserInfoApp    //修改用户用户基本信息，性别，昵称，头像等
 修改头像
@@ -460,7 +513,7 @@
 
 1./app/index/scanCode/oilGunInfo/v1/{sessionKey}/{timestamp}  //c端油枪扫一扫接口
 {
-  "fromSource": "1",//1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注
+  "fromSource": "1",//1=扫描入口 2=一键加油 3=油站详情进入 5=首页 //代码备注  ios 1==正常扫描，2==油站详情点击扫描，3=一键加油 4==地图  返回的limitPrivateCar0 正常支付 1 私家车不可用， 2 私家车不可用但可注册，否则进入详情
   "qrCode": "",//扫描出来的字符串
   "type": "-1",//固定值
 }
