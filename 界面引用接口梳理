@@ -18,8 +18,10 @@
 	"user_id": "2199123" // 用户ID
 	"telephone": "15236183971",//  手机号
 }
+01.首页
 
-1.app/userManage/getAppSession  //获取sessionkey
+
+1./app/userManage/getAppSession  //获取sessionkey
 {
   "userPhoneSerial": "",  //手机序列号
   "jpushId": "",//  Android传""
@@ -28,11 +30,11 @@
   "carNumber": "",//  Android传""
 }
 
-1.app/index/vip/integral 添加待领取积分任务.behaviorId: 1表示加油，2表示登陆，3表示分享
+2./app/index/vip/integral 添加待领取积分任务.behaviorId: 1表示加油，2表示登陆，3表示分享
 {
 	"behaviorId": "2",
 }
-1./app/myPage/appLogin //登陆
+3./app/myPage/appLogin //登陆
 {
 "accessToken":"一键登录token",
 "userPhone":"13000000000",//手机号
@@ -43,60 +45,60 @@
 	"type": "W9p47cNBx7d0gc3IIoHoZ0C3TmozJXWaBeWYYSEMWc5kP3d+bKGdkJ0HE5ovQJNMtQKzobI/YAMlAApPDlu4RyeutFwP8lzjKe8jx7Rd+3fZl+l8v2db+aPIo8CTYA0/asjQXanS6FznZKtcyUXL9bJzSMacV7tWP0CT+HJO9bifBosHeQ7g3D+wQk9zuI9s"
 }
 
-1.app/account/presentIntegral 添加待领取积分任务
+4./app/account/presentIntegral 添加待领取积分任务
 {
   "behaviorId": "2",//behaviorId: 1表示加油，2表示登陆，3表示分享
 }
 
-01.首页
-1./app/index/deviceInfo/recordDeviceInfo //推送上传registerId
+
+5./app/index/deviceInfo/recordDeviceInfo //推送上传registerId
 {
 	"platformType": "3",  // 手机类型 JPUSH = 1, XIAOMI = 2, HUAWEI = 3, VIVO = 4, OPPO = 5;
 	"regId": "0862337031296075300005579800CN01",//  推送tokenID
 }
-2./app/index/app/adverts //开屏广告
+6./app/index/app/adverts //开屏广告
 {
 	"advertTypeId": "1", // 1 开屏广告
 }
-3./app/index/queryStationList //油站列表
+7./app/index/queryStationList //油站列表
 {
 	"latitude": "22.561563",
 	"longitude": "113.948175",
 	"oilId": "1" // 油品ID 1-92 2-95 3-98
 }
-4./app/index/getIndexBanners //获取首页轮播图
+8./app/index/getIndexBanners //获取首页轮播图
 {}
-5./app/index/getIndexAlerts //获取运动首页弹窗和浮窗
+9./app/index/getIndexAlerts //获取运动首页弹窗和浮窗
 {}
-6./app/index/getDownloadJob //检查更新get
+10./app/index/getDownloadJob //检查更新get
 
 
-7./app/index/seckillAdLink //首页web广告 APIHomeWebAd
+11./app/index/seckillAdLink //首页web广告 APIHomeWebAd
 {
 	"oilId": "1",// 油品ID 1-92 2-95 3-98
 }
-8./app/eapi/queryUserLifeGuide //底部tab车主权益红点判断
+12./app/eapi/queryUserLifeGuide //底部tab车主权益红点判断
 {}
-9./app/eapi/otherInterests //(车生活)获取引导弹窗，送会员，首次易豆
+13./app/eapi/otherInterests //(车生活)获取引导弹窗，送会员，首次易豆
 
-10./app/myPage/getMyInfoApp/{sessionKey}/{timestamp}//获取用户信息
+14./app/myPage/getMyInfoApp/{sessionKey}/{timestamp}//获取用户信息
 {}
 
-11./app/userManage/updateCoordinate //上传用户经纬度，等基本信息
+15./app/userManage/updateCoordinate //上传用户经纬度，等基本信息
 {
 	"source": "1", // 1，是正常进入，2是push进入
 	"imei": "00000000-0120-7529-876a-d0ea00000030",//手机序列号
 }
 
-12./app/coupon/get/coupon/objects/{sessionKey}/{timestamp} //获取优惠券接口
+16./app/coupon/get/coupon/objects/{sessionKey}/{timestamp} //获取优惠券接口
 {
 	"oilId": "1",//油品ID
 }
-13./app/account/queryIndexOilgoldAccountInfo//查询首页加油金账户信息
+17./app/account/queryIndexOilgoldAccountInfo//查询首页加油金账户信息
 {
 	"oilId": "1",//油品ID
 }
-14./app/activity/hasXYActivity //判断是否有XY活动接口
+18./app/activity/hasXYActivity //判断是否有XY活动接口
 {
 	"stationId": "22224036",//油站ID
 	"oilId": "2"//油品ID
@@ -328,31 +330,32 @@
 {
 "orderId": ""
 }
-12./app/comment/comment/getAllCommentList  //点击其他 评论页面进行数据查询
+14./app/comment/comment/getAllCommentList  //点击其他 评论页面进行数据查询
 {
 	"orderId": "9110000020158114",
 }
 
 
-13./app/myPage/checkUserIdentity/{sessionKey}/{timestamp}   设置密码时检查用户状态 Get
+15./app/myPage/checkUserIdentity/{sessionKey}/{timestamp}   设置密码时检查用户状态 Get
 
-14./app/eapi/payOverAdInline 支付完成广告弹框
+16./app/eapi/payOverAdInline 支付完成广告弹框
 {
 	"order_no": "1111", //订单ID
 }
-15./app/order/epay_order/v1/{sessionKey}/{timestamp}  油卡储蓄卡支付
+17./app/order/epay_order/v1/{sessionKey}/{timestamp}  油卡储蓄卡支付
 {
  "orderId":"69",//订单ID
  "password": ""//支付密码
  "type": "1"//支付类型  1.微信 2.支付宝  69.银联 70.农行 80.工商 91.小浦发 99.中信 102.建行 103.中国银行 else = 无卡支付 -1
 }
 
-16./app/order/get_order_pay_status/v1/{sessionKey}/{orderId}/{timestamp}  支付成功通知服务器 GET
+18./app/order/get_order_pay_status/v1/{sessionKey}/{orderId}/{timestamp}  支付成功通知服务器 GET
 
-17./app/userManage/userRefundApply/{sessionKey}/{timestamp} 申请退款
+19./app/userManage/userRefundApply/{sessionKey}/{timestamp} 申请退款
 {
  "orderId":"69",//订单ID
 }
+
 05.我的界面
 1./app/myPage/getMyInfoApp/{sessionKey}/{timestamp}  //获取用户信息
 {}
@@ -417,7 +420,7 @@
 }
 5./app/userManage/getFastAuditInfo/{sessionKey}/{timestamp} //是否支持急速审核 GET
 
-3./app/userManage/updateUserInfoApp    //修改用户用户基本信息，性别，昵称，头像等
+6./app/userManage/updateUserInfoApp    //修改用户用户基本信息，性别，昵称，头像等
 修改头像
 {
 	"headImgUpd": "1",//默认值
@@ -439,37 +442,37 @@
 	"birthDateUpd": "1"//默认值
 }
 
-4./app/userManage/userInvoice //发票管理查询
+7./app/userManage/userInvoice //发票管理查询
 {
 	"oper": "sel",//查询操作 默认值
 }
-5./app/userManage/userInvoice  添加
+8./app/userManage/userInvoice  添加
 {
 	"invoice_number": "1",//发票纳税人号//可选 单位报销必填
 	"oper": "add",//添加操作 默认值
 	"invoice_code": "1"//发票抬头
 }
-6./app/userManage/userInvoice  删除
+9./app/userManage/userInvoice  删除
 {
 	"oper": "del",//删除操作 默认值
   "user_invoice_id": "2164",//发票ID
 }
-7./app/userManage/userInvoice  修改
+10./app/userManage/userInvoice  修改
 {
 	"oper": "update",//修改操作 默认值
   "user_invoice_id": "2164",//发票ID
   "invoice_number": "1",//发票纳税人号//可选 单位报销必填
   "invoice_code": "1"//发票抬头
 }
-8./app/myPage/getUserAccountInfogetRegisterType //获取注册类型
+11./app/myPage/getUserAccountInfogetRegisterType //获取注册类型
 {
 	"fromSource": "4" //来自哪个入口1. 首次登录 2. 油枪页 3. 我的头像 4. 个人资料页面 5.油站列表想要更多优惠
 }
-9./app/myPage/setSendSmsApp/ 绑定手机号码   验证码获取
+12./app/myPage/setSendSmsApp/ 绑定手机号码   验证码获取
 {
 	"phone": "13333333333"
 }
-10./app/myPage/updateUserPhoneApp/{sessionKey}/{timestamp}
+13./app/myPage/updateUserPhoneApp/{sessionKey}/{timestamp}
 
 绑定手机号
 {
@@ -486,7 +489,7 @@
   "wxUnionIDUpd": "1", //固定值
   "weiXinInfoI": "", //微信信息对象 nickName headImagUrl unionId 三个字段的对象
 }
-11./app/userManage/checkUserAccount/{sessionKey}/{type}/{target}/{timestamp} 更换手机号，微信号前校验账号 Get
+14./app/userManage/checkUserAccount/{sessionKey}/{type}/{target}/{timestamp} 更换手机号，微信号前校验账号 Get
 
 
 

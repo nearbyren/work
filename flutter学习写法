@@ -15,3 +15,6 @@ Stack 子组件叠加显示 根据子组件的顺序依次向上叠加
 
 
 IndexedStack 是Stack的子类 Stack是将所有的子类叠加一起显示 而IndexedStack是只显示指定的子组件
+
+
+Row 水平布局 MainAxisAlignment（主轴）   Column垂直布局 CorssAxisAlignment（交叉轴）
