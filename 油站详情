@@ -10,3 +10,119 @@ defaultPayType 类型 = 默认支付方式
 
 
 支付 = 将所有的支付方式再取出来
+
+
+01.确定订单详情
+
+
+1.收藏接口 /v1/favorite/station/update
+2.油站详情 /v1/station/detail/venus     头部区域块
+3.时时订单 /v1/station/orders           tab油站详情
+4.评论    /v1/evaluate/evaluateStickyListV2.do tab油站详情
+5.油枪信息  /oreo/scanCode/oilGunInfo/venus/   油号信息 92 95
+6.油价信息 /oreo/rs/scanCode/oilPriceInfo/venus/  js算法计算最高优惠  commonCountMoneyJs
+7.订单价格计算   /oreo/rs/scanCode/oilPrice/calculate/v1/   100 200 300
+8.活动    /eapi/v2/app/opportunity_act
+9.优惠券与广告  /eapi/v2/app/station/coupons
+10.分享秒杀  /eapi/v2/app/act_seniority
+
+
+
+
+
+
+
+1.详情
+  收藏取消     /v1/favorite/station/update
+
+统计  油站相关信息   /v1/station/detail/venus      头部区域块
+统计 油枪信息    /oreo/scanCode/oilGunInfo/venus/{sessionKey}/{timeMillis}
+统计2则请求一下接口  tab油站详情
+  评价         /v1/evaluate/evaluateStickyListV2.do
+  广告        /eapi/v2/app/station/coupons
+
+
+
+  重新进界面  /eapi/v2/app/act_seniority     反馈
+  重新获取油价信息 /oreo/rs/scanCode/oilPriceInfo/venus/{sessionKey}/{timeMillis} 优惠价 油站价 指导价
+  获取活动资格       /eapi/v2/app/opportunity_act  此处活动分享 有标识重新近界面   会走上面流程
+
+
+  点击油号会
+   会重新获取油价信息   /oreo/rs/scanCode/oilPriceInfo/venus/{sessionKey}/{timeMillis}   优惠价 油站价 指导价
+     获取活动资格       /eapi/v2/app/opportunity_act
+
+
+获取油枪成功 再获取油价。
+
+油价信息      /oreo/rs/scanCode/oilPriceInfo/venus/{sessionKey}/{timeMillis}   优惠价 油站价 指导价
+显示完油价信息 再获取计算优惠算法     /oreo/get/coupon/objects/{sessionKey}/{timeMillis}
+再获取油站优惠券  /oreo/rs/scanCode/oilPrice/calculate/v1/{sessionKey}/{timeMillis}  100 200 300 优惠计算最高优惠xxx
+
+
+
+获取实时订单
+
+获取用户认证状态
+
+
+
+
+2.确认订单
+        获取优惠券        /oreo/get/pay/discount/objects/{sessionKey}/{timeMillis} 再获取下面的接口
+
+        获取支付方式接口  /oreo/rs/payment/options/venus/{sessionKey}/{timeMillis}  推荐支付 银行卡支付 其他方式  车主金 eplus 开启eplus弹框  农行回调 重进界面 选择优惠券回调  点击获取更多方式 点击会再次获取接口
+无使用   创建订单接口      /oreo/order/build/v1/{sessionKey}/{timeMillis}
+
+油卡支付                 /oreo/rs/epay_order/v1/{sessionKey}/{timeMillis}
+油卡密码忘记检测用户状态    进行身份证验证。 账户被冻结反馈
+3.支付
+
+ 创建订单接口      /oreo/order/build/v1/{sessionKey}/{timeMillis}
+ 获取支付方式接口  /oreo/rs/payment/options/venus/{sessionKey}/{timeMillis}
+ 检查是否有油卡   /oreo/rs/checkUserPaymentState/v1/{sessionKey}/{timeMillis}  会涉及到设置油卡密码
+下面就是各种支付方式
+1.微信 2.支付宝 69.银联支付[sdk] 70.农行支付[网页，sdk] 80.工行支付[网关接口检查 网页] 91.小浦支付[网页]  99.中信银行支付[网页] 102.建行钱包[检查是否存在账号 网页] 103.中国银行[网页]  else 无卡支付
+
+
+
+详情 -> 支付
+
+
+Constants.INPUT_SUM       加油金额
+Constants.OIL_MASS        多少升
+Constants.FROMSOURCE      入口
+Constants.STATIONNAME     油站名称
+Constants.STATIONADDRESS  油站地址
+Constants.STATIONAICON    油站背景图
+Constants.STATIONOILTYPE  油号
+Constants.STATIONOILGUN   油枪代码
+Constants.STATIONOILID    油ID
+Constants.STATIONOILGUNID 油枪ID
+bankActivityImg           推荐支付图
+bankActivityUrl           推荐支付地址
+
+
+payAmount  支付价格
+
+不等于油卡支付方式
+  payState  支付状态
+  payDescription  支付说明
+
+paymentDetail 付款明细 包含{  直降优惠 优惠券优惠 车主金优惠 服务费 购买eplus 会员优惠 支付最高返车主金 }
+
+bankAccountUrl 银行账号地址
+isSupportCarMember 是支持汽车会员    1.显示eplus信息   2.不显示eplus信息
+carMemberPayInfo  车主金      说明
+carMemberAmout 是支持汽车账户金额
+carMemberUrl   汽车会有地址
+nonStackingCouponsFlag 非堆叠优惠券标志    1.该优惠券不可与其他优惠叠加使用
+theHighestDiscount 最高优惠折扣
+paymentDetail.couponDiscount  优惠券
+title  支付方式
+type   支付类型 普通 油卡 银行
+isDownloadNotify 下载通知
+downloadInfo 下载信息
+paymentDetail.eplusDiscount.quantity  显示会员生效
+paymentDetail.totalText  总会员优惠金额
+walletState   钱包状态
