@@ -102,16 +102,39 @@ Constants.STATIONOILGUNID 油枪ID
 bankActivityImg           推荐支付图
 bankActivityUrl           推荐支付地址
 
-
+payments 支付列表集合
+集合下的字段
+{
+icon 支付图标
+isTop 是否推荐
+type  类型   0 普通  1 油卡 2 银行卡
 payAmount  支付价格
+payBalance 余额
+paymentDetail 对象  付款明细 包含{  直降优惠 优惠券优惠 车主金优惠 服务费 购买eplus 会员优惠 支付最高返车主金 }
+bankAccountUrl 无卡支付h5链接
+isSupportCarMember 是支持汽车会员    1.显示eplus信息   2.不显示eplus信息
+carMemberPayInfo  车主金      说明
+carMemberAmout 是支持汽车账户金额
+carMemberUrl   汽车会有地址
+nonStackingCouponsFlag  非堆叠优惠券标志    1.该优惠券不可与其他优惠叠加使用
+theHighestDiscount 最高优惠折扣
+isDownloadNotify 下载通知
+downloadInfo 下载信息
+}
+
+
+
+type  类型   0 普通  1 油卡 2 银行卡
 
 不等于油卡支付方式
   payState  支付状态
   payDescription  支付说明
 
+defaultPayType  默认支付方式
+isBankMoreHui   是否有更多银行优惠红点
 paymentDetail 付款明细 包含{  直降优惠 优惠券优惠 车主金优惠 服务费 购买eplus 会员优惠 支付最高返车主金 }
 
-bankAccountUrl 银行账号地址
+bankAccountUrl 无卡支付h5链接
 isSupportCarMember 是支持汽车会员    1.显示eplus信息   2.不显示eplus信息
 carMemberPayInfo  车主金      说明
 carMemberAmout 是支持汽车账户金额
@@ -125,4 +148,63 @@ isDownloadNotify 下载通知
 downloadInfo 下载信息
 paymentDetail.eplusDiscount.quantity  显示会员生效
 paymentDetail.totalText  总会员优惠金额
-walletState   钱包状态
+walletState   钱包状态  1：注册钱包 2：跳转充值
+
+
+/ejy-portal-service/app/order/get/payment/list/{sessionKey}/{timestamp} 这个换成
+/ejy-portal-service/app/order/get/payment/list/last/{sessionKey}/{timestamp}
+
+切换 老接口
+首次获取新接口。
+
+
+
+
+
+
+
+fun getPaymentList2(map : HashMap<String, String>, callback : Callback<PayWayListBean>) {
+  val newMap = RetrofitManager.setMap(map)
+  val body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), Gson().toJson(newMap))
+  val sessionKey = SPUtils.get(EjyApp.getContext(), Constants.SESSION_KEY, "") as String
+  val call = mApi?.getPaymentList2(sessionKey, System.currentTimeMillis().toString(), body)
+  call?.enqueue(callback)
+}
+
+/**
+  * 获取支付列表 2.0 20211116优化
+  */
+ @Headers("Content-Type: application/json")
+ @POST("/gateway/ejy-portal-service/app/order/get/payment/list/last/{sessionKey}/{timestamp}")
+ fun getPaymentList2(@Path("sessionKey") sessionKey : String , @Path("timestamp") timeMillis : String , @Body body : RequestBody?) : Call<PayWayListBean>
+
+
+ fun getPaymentList2(map: HashMap<String, String>, type: Int) {
+       if (type == -1||type == -999) {
+           mView.showLoading()
+       }
+       mModel?.getPaymentList2(map, object : Callback<PayWayListBean> {
+           override fun onFailure(call: Call<PayWayListBean>, t: Throwable) {
+               mView.showToast("获取支付方式失败")
+               mView.hideLoading()
+           }
+
+           override fun onResponse(call: Call<PayWayListBean>, response: Response<PayWayListBean>) {
+               try {
+                   val payWayListBean = response.body() as PayWayListBean
+                   if (payWayListBean.code == 200) {
+                       val data = payWayListBean.data ?: return
+                       mView.showPayWayList(data)
+                   } else {
+                       mView.showToast(payWayListBean.msg)
+                   }
+               } catch (e: Exception) {
+                   mView.showToast("获取支付方式异常")
+               } finally {
+                   mView.hideLoading()
+               }
+           }
+       })
+   }
+
+   24 5
