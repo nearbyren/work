@@ -1,0 +1,102 @@
+1.关于布局
+
+万物父布局 使用 Container 常用  height  高度   decoration 设置控件样式
+Row 对应线性布局水平  常用 mainAxisAlignment 水平方式
+Image 对应 ImageView  常用 image  height
+Text 对应 TextView  常用 TextStyle 样式
+
+Expanded、Flexible和Spacer都是具有权重属性的组件，可以控制Row、Column、Flex的子控件如何布局的控件。
+
+
+
+事件处理 使用  GestureDetector 对应各种点击时间
+
+
+
+
+
+2.关于网络
+Future<T> 异步操作结果
+T代表返回Future对象的
+
+关键字  Future  async  await
+
+继承 ChangeNotifier  实现数据刷新Ui
+
+
+异常问题 'package:flutter/src/widgets/visibility.dart': Failed assertion: line 67 pos 15: 'visible != null': is not true.
+
+
+开发遇见的例子
+A     B     C
+
+C 请求服务关闭当前C 返回B并将B ui 刷新  B 关闭后 并刷新 C
+
+解决方案 ：
+
+1.构建  ChangeNotifier
+class changeNotifier extends ChangeNotifier
+
+
+
+2.A -> B 接收A的 changeNotifier 数据，  B -> C  接收B的 changeNotifier  数据，  C 请求服务处理业务 刷新 changeNotifier 数据 即可刷新 B A ui
+
+
+
+
+
+
+方法 参数{} 代表可选参数
+sendSms(ValueNotifier<String> timerText, {String mobile}) {
+
+因为Ui根据返回的数据处理UI 如下  _mineSettingNotice.isVisibility
+_Visibility() {
+  return Visibility(
+      visible: _mineSettingNotice.isVisibility,
+      child: Column(
+        children: [
+          MineCell(
+              type: EStrings.SETTING_ITEM_CERTIFICATION,
+              title: '实名认证',
+              subTitle: _mineSettingNotice.hadCertificationText,
+              imageName: EImageAssets.arrowGreyIcon),
+          SizedBox(
+            height: 0.5,
+          ),
+          MineCell(
+              type: EStrings.SETTING_ITEM_PAY_PASSWORD,
+              title: '电子油卡支付密码',
+              subTitle: _mineSettingNotice.hadPasswordText,
+              imageName: EImageAssets.arrowGreyIcon),
+          SizedBox(
+            height: 10,
+          ),
+        ],
+      ));
+}
+解决方案
+if (_mineSettingNotice.model == null) {
+     return Container();
+   }
+再走上面的Ui
+
+
+数据通信
+class MineSettingNotice extends ChangeNotifier {
+
+  可以定义更多的属性提供给Ui调用
+  给ui提供数据
+  AccountInfoBean get model => _accountInfoBean;
+
+
+  Future<bool> getUserAccountInfo() async {
+   EasyLoading.show(status: EStrings.LOADING_TEXT);
+   await MineRequest().getUserAccountInfo(onSuccess: (model) {
+      print('请求成功' );
+     //通知刷新
+     notifyListeners();
+   }, onError: (error) {
+     print('请求失败' + error);
+   });
+ }
+}
