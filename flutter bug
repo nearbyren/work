@@ -1,0 +1,42 @@
+Waiting for a connection from Flutter on MI 9 SE...
+Debug service listening on ws://127.0.0.1:55296/VFlQIivlsU0=/ws
+Syncing files to device MI 9 SE...
+
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following StateError was thrown building MyApp(dirty):
+Bad state: Stream has already been listened to.
+
+The relevant error-causing widget was:
+  MyApp
+  file:///Users/edy/AndroidStudioProjects/NativeFlutter/easy_refuel_flutter/refuel_flutter_module/lib/main.dart:32:10
+
+When the exception was thrown, this was the stack:
+#3      MyApp._setupListener (package:refuel_flutter_module/main.dart:110:39)
+#4      MyApp.build (package:refuel_flutter_module/main.dart:124:5)
+#5      StatelessElement.build (package:flutter/src/widgets/framework.dart:4648:28)
+#6      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:4574:15)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:4267:5)
+#8      BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:2582:33)
+#9      WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:875:21)
+#10     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:328:5)
+#11     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1144:15)
+#12     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1082:9)
+#13     SchedulerBinding.scheduleWarmUpFrame.<anonymous closure> (package:flutter/src/scheduler/binding.dart:865:7)
+(elided 7 frames from class _RawReceivePortImpl, class _Timer, dart:async, and dart:async-patch)
+
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+======== Exception caught by widgets library =======================================================
+The following StateError was thrown building MyApp(dirty):
+Bad state: Stream has already been listened to.
+
+The relevant error-causing widget was:
+  MyApp file:///Users/edy/AndroidStudioProjects/NativeFlutter/easy_refuel_flutter/refuel_flutter_module/lib/main.dart:32:10
+When the exception was thrown, this was the stack:
+#3      MyApp._setupListener (package:refuel_flutter_module/main.dart:110:39)
+#4      MyApp.build (package:refuel_flutter_module/main.dart:124:5)
+#5      StatelessElement.build (package:flutter/src/widgets/framework.dart:4648:28)
+#6      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:4574:15)
+#7      Element.rebuild (package:flutter/src/widgets/framework.dart:4267:5)
+...
+====================================================================================================
