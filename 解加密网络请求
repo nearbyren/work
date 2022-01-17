@@ -1,0 +1,179 @@
+var json = Gson().toJson(map)
+     var jsonEncry = AESCipher.aesEncryptString(json)
+     var postJSon = JSONObject()
+     postJSon.put("type", jsonEncry)
+     Logger.d("加密前body:$json")
+     Logger.d("加密后body:$jsonEncry")
+     val body = RequestBody.create(
+         MediaType.parse("application/json; charset=utf-8"),
+         postJSon.toString()
+     )
+     RetrofitFactory.createString(AppService::class.java)
+         .login(DynamicUrl.instance.whenUrl(1, "APP_MYPAGE_APPLOGIN"), body)
+         .enqueue(object : retrofit2.Callback<String> {
+             override fun onFailure(call: Call<String>, t: Throwable) {
+                 Logger.d("onFailure " + t.message)
+             }
+
+             override fun onResponse(call: Call<String>, response: Response<String>) {
+                 Logger.d("onResponse " + response.body())
+                 var s = AESCipher.aesDecryptString(response.body())
+                 var json = RetrofitFactory.aesDecryptString(s)
+                 Logger.d("onResponse " + json)
+                 val loginBean = Gson().fromJson(json, LoginBean::class.java)
+
+             }
+         })
+
+
+Y骚膛守淡章晋辣蛆轴炯谋豁挺徒逗涤咱壳鉴二画夫藩娱拖裂释狠拇辛糖
+
+
+禹饺搓扶冗N舀猴趣牌赏弱衙茸悯啃咸界郡笨潜客拍绎Y扁铃蜘从含件z
+
+
+MyOkhttpUtils.getInstance().get
+
+MyOkhttpUtils.getInstance().post
+
+
+
+   MyOkhttpUtils.getInstance().gatherInformation(context, orderId, "1", "wxPayError_COMM", inputOrderInfo, stringBuffer.toString(), "");
+
+
+
+埋点一  getCommonParams
+//设置全埋点参数
+       val map = HashMap<String, String>()
+       map["RF"] = URLEncoder.encode(webUrl, "UTF-8")
+       val params = MyOkhttpUtils.getInstance().getCommonParams(map, activity)
+       val sb = StringBuffer()
+       for (entry in params.entries) {
+           sb.append("&" + entry.key + "=" + entry.value)
+       }
+       val map2 = HashMap<String, String>()
+       map2["ejylog"] = sb.toString()
+       val config = Config(activity)
+       val userId = config.user_ID_Int
+       val ctype = config.getInt(Constants.CarType)
+       val appUtils = AppUtils(activity)
+       val latitude = SPUtils.get(activity, "latitude", "") as String
+       val longitude = SPUtils.get(activity, "longitude", "") as String
+       mRootView.spike_area_web_view.loadUrl("$webUrl?userId=$userId&user_id=$userId&latitude=$latitude&longitude=$longitude&car_type=$ctype&carType=$ctype&os_type=2&osType=2&versionId=${appUtils.versionName}&version=${appUtils.versionName}&versionBuild=${appUtils.versionCode}", map2)
+
+
+//https://analytics.ejiayou.com/collect
+   public Map<String, String> getCommonParams(Map<String, String> map, Context context) {
+       Map<String, String> mapAll = new HashMap<>();
+       AppUtils appUtils = new AppUtils(context);
+       mapAll.put("SE", SystemUtil.getSessionId(context));//会话标识
+       mapAll.put("UI", String.valueOf(appUtils.getUserId()));//user_id
+       mapAll.put("TU", SystemUtil.getUUID(context));
+       mapAll.put("TM", String.valueOf(System.currentTimeMillis()));//时间
+       mapAll.put("CT", "Android机");//设备类型
+       mapAll.put("VE", "1");//版本
+       mapAll.put("CI", SystemUtil.getUUID(context));//设备ID
+       mapAll.put("PT", SystemUtil.getSystemModel());//型号
+       mapAll.put("OP", SystemUtil.getOS());//操作系统
+       mapAll.put("BR", SystemUtil.getDeviceBrand());//品牌
+       mapAll.put("NT", SystemUtil.getNetMode(context));//网络类型
+       String latitude = (String) SPUtils.get(context, "latitude", "");
+       String longitude = (String) SPUtils.get(context, "longitude", "");
+       mapAll.put("PO", longitude + "," + latitude);//地理位置
+       mapAll.put("TAGCT", "Android");//网络类型
+       if (null != map) {
+           mapAll.putAll(map);
+       }
+       Logger.json( new Gson().toJson(mapAll));
+       return mapAll;
+
+   }
+
+
+埋点二
+
+cMap["ET"] = "3" //场景切换=1； 数据交互=2；特殊埋点=3
+cMap["EV"] = "click" //事件
+cMap["SC"] = "menuType_${menuType}_channel_${menuBean.channel}_shareContentType_${menuBean.shareContentType}"
+map.put("TAGUT", ChannelReaderUtil.getChannel(EjyApp.getContext()));
+MyOkhttpUtils.getInstance().okHttpGetAnalytics(cMap)
+
+
+
+埋点三
+
+String url = ServerSwitch.getInstance().getHost() + "/activity/channel/default";
+       if (!TextUtils.isEmpty(channelNo)) {
+           AppUtils appUtils = new AppUtils(context);
+           Map<String, String> map = new HashMap<>();
+           map.put("channel_no", channelNo);
+           map.put("user_id", String.valueOf(appUtils.getUserId()));
+           map.put("car_type", String.valueOf(appUtils.getCarType()));
+           map.put("version", appUtils.getVersionName());
+           map.put("os_type", String.valueOf(Constants.OS_ANDROID));
+           if (!TextUtils.isEmpty(sourceType)) {
+               map.put("source_type", sourceType);
+           }
+           if (!TextUtils.isEmpty(filterSource)) {
+               map.put("filter_source", filterSource);
+           }
+           if (!TextUtils.isEmpty(chooseCarType)) {
+               map.put("choose_car_type", chooseCarType);
+           }
+           if (!TextUtils.isEmpty(isNewUser)) {
+               map.put("is_new", isNewUser);
+           }
+           if (!TextUtils.isEmpty(mobile)) {
+               map.put("mobile", mobile);
+           }
+           if (!TextUtils.isEmpty(param3)) {
+               map.put("param3", param3);
+           }
+
+埋点四
+public void yuanGangcollectEvent(Context context, int source_type, int filter_source) {
+        String url = ServerSwitch.getInstance().getHost() + "/activity/channel/default";
+//        user_id=1162
+//        os_type=1
+//        version=5.5.2
+//        source_type=1
+//        filter_source=3
+
+        AppUtils appUtils = new AppUtils(context);
+        Map<String, String> map = new HashMap<>();
+        map.put("channel_no", "zhongkongPay");
+        map.put("user_id", String.valueOf(appUtils.getUserId()));
+        map.put("os_type", String.valueOf(Constants.OS_ANDROID));
+        map.put("version", appUtils.getVersionName());
+        map.put("source_type", String.valueOf(source_type));
+        map.put("filter_source", String.valueOf(filter_source));
+
+        MyOkhttpUtils.getInstance().getAndParams(context, map, url, new MyOkhttpUtils.StringCallBack() {
+            @Override
+            public void onError(Exception e) {
+                Log.i("StationListFragment", "埋点失败" + "zhongkongPay" + "===" + e.toString());
+            }
+
+            @Override
+            public void onResponse(String response) {
+                Log.i("StationListFragment", "埋点成功" + "zhongkongPay");
+            }
+
+            @Override
+            public void onException() {
+                Log.i("exception", "url:" + "zhongkongPay");
+            }
+        });
+
+    }
+
+
+.setOnClickListener(this);
+
+
+
+
+
+
+
+

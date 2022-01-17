@@ -1,0 +1,12 @@
+{
+	"code": 500,
+	"message": "操作成功",
+	"data": {
+		"newPage": {
+			"filterPage": [],
+			"open": 1
+		}
+	},
+	"totalCount": null,
+	"success": true
+}

@@ -1,0 +1,150 @@
+胡强 毛波 汪建 陈都  石根  我   百亿  思雨  厚文
+
+华为 Mate30
+Android 10
+
+华为 P10 Plus
+Android 9
+
+华为 Nova7 SE
+Android 10
+
+华为 P40
+Android 10
+
+魅族 Note8
+Android 8.1.0  定位
+
+魅族 16s
+Android 9
+
+
+
+三星 Galaxy S9
+Android 9   定位
+
+三星 Galaxy S8+
+Android 9  定位 ui字体
+
+
+
+
+红米5 Plus
+Android 8.1.0 定位
+
+小米8 SE
+Android 9  定位
+
+
+
+
+VIVO S1
+Android 10
+
+VIVO X9i
+Android 7.1.2  定位
+
+VIVO Y91
+Android 8.1.0 定位
+
+VIVO Y85
+Android 8.1.0 定位
+
+VIVO X21
+Android 9  定位
+
+VIVO NEX
+Android 10
+
+VIVO X20A
+Android 8.1.0  定位
+
+
+
+
+荣耀 Play3
+Android 10  定位
+
+荣耀 畅玩7
+Android 9 定位
+
+bugly
+魅族Pro 6s  vivo X27 vivo Y52s  iQOO Neo3 Nexus 4
+
+
+114.072061   22.514141
+
+XI.XI.K0.XI
+meizu 17  Vivo S1 (V1831A)  iQOO Neo5 5G vivo X60
+
+
+Nexus 4  魅族PRO 6s
+
+
+
+V2046A(vivo X60 )
+XI.CA.XI.K0
+
+
+V1955A(vivo iQOO3)
+V2055A(iQOO Neo5 5G)
+V1831A(S1)
+V1824A(iQOO新机型号)
+meizu 17 Pro
+V2047A(vivo X60 Pro)
+
+
+
+V2002A(vivo y70s)
+V2001A(vivoX50)
+V1981A(iQOO Neo3)
+V2057A(vivoY52s)
+V2055A(iQOO Neo5 5G)
+V1838A(vivo X27)
+V1831A(S1)
+魅族 16s
+V1824A(iQOO新机型号)
+meizu 17 Pro
+V2047A(vivo X60 Pro)
+
+com.netease.nis.sdkwrapper.Utils.rL(Utils.java)
+
+
+
+-keep class com.intsig.nativelib.** { *;}
+-keep class com.ccb.** { *;}
+-keep class com.esafe.** { *;}
+-keep class com.coralline.sea01.** { *;}
+-dontwarn com.esafe.commontool.**
+-keep class com.ccb.framework.security.facerecognition.listener.** {*;}
+-keep class com.sensetime.senseid.ccb.sdk.liveness.** {*;}
+-keep class com.tendyron.liveness.** {*;}
+-keep class org.apache.http.** {*;}
+-keep class com.ccb.common.**
+-dontwarn cn.com.chinatelecom.**
+-dontwarn com.coralline.sea01.**
+-keep class cn.com.chinatelecom.**
+-keep class com.ccb.common.net.httpconnection.MbsHttpUtils
+-keep class com.ccb.common.net.httpconnection.MbsNewHttpConnection
+
+-keep class com.asus.msa.** { *;}
+-keep class com.bun.** { *;}
+-keep class com.huawei.hms.ads.identifier.** { *;}
+-keep class com.netease.nis.sdkwrapper.** { *;}
+-keep class com.samsung.android.deviceidservice.** { *;}
+-keep class com.zui.** { *;}
+
+https://dev.ejiayou.com/oreo/get_order_pay_status/v1/d8596fee48274870a5a3970bc74ffcf9/9110000020174660/1640944751773
+
+
+https://dev.ejiayou.com/activity/channel/default?source_type=6&channel_no=bp_eva&versionBuild=185&carType=5&osType=2&userId=2122341589&telephone=15236183971&version=6.4.5&os_type=2&car_type=5&versionId=6.4.5&user_id=2122341589
+
+https://dev.ejiayou.com/activity/popupapi/popup?versionBuild=185&carType=5&osType=2&userId=2122341589&telephone=15236183971&version=6.4.5&os_type=2&order_id=9110000020174660&car_type=5&versionId=6.4.5&user_id=2122341589
+
+https://dev.ejiayou.com/eapi/v1/app/pay_over_ad/inline
+
+https://dev.ejiayou.com/v1/evaluate/commitEvaluation.do?versionBuild=185&carType=5&userId=2122341589&os_type=2&all_point=1-3%2C2-3%2C3-3%2C&order_id=9110000020174660&versionId=6.4.5&osType=2&telephone=15236183971&version=6.4.5&comment=sush&car_type=5&type=1&user_id=2122341589
+
+https://dev.ejiayou.com/v1/comment/getAllCommentList.do?versionBuild=185&carType=5&osType=2&userId=2122341589&telephone=15236183971&orderId=9110000020174660&version=6.4.5&os_type=2&car_type=5&versionId=6.4.5&user_id=2122341589
+
+https://dev.ejiayou.com/v1/comment/getEvaluateInfo_v3.do?versionBuild=185&carType=5&osType=2&userId=2122341589&telephone=15236183971&orderId=9110000020174660&version=6.4.5&os_type=2&car_type=5&versionId=6.4.5&user_id=2122341589&flag=1
