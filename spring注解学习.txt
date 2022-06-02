@@ -90,3 +90,17 @@
 @Data 主要注入生成 getter setter equals hashCode  toString
 @AllArgsConstructor 注解在类上 生成有参构造函数 
 @NoArgsConstructor  注解在类上 生成无参构造函数
+
+
+
+DTO  代表服务层需要接收数据和返回的数据
+ 
+VO   代表表示层需要显示的数据
+
+
+
+RestTemplate Http请求工具,利用于服务之间的调用
+
+
+
+
