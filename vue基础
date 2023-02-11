@@ -1,0 +1,142 @@
+  import { defineComponent, reactive, ref } from "vue";
+  引用3.0Vue方式。
+
+
+
+setup() {
+    const xxx4 = computed(()=>{
+        
+      业务处理返回xx供vue使用
+     return {
+            xx1,
+            xx2,
+            ...
+     }
+    }
+
+   return {
+        xx2,
+        xx3,
+        xxx4
+      }
+}
+
+使用方式
+ <a-col :span="6">
+    <a-form-item :label="xxx4.xx1">
+       <span class="content">{{xxx4.xx2}}</span>
+   </a-form-item>
+</a-col>
+
+
+ref 响应式元素变动
+
+ref 获取元素
+
+
+<template> 
+  <div id="haha" ref="haha"></div>
+</template>
+
+setup(){
+
+    let haha = ref<HTMLElement|null>(null)
+
+    console.log(haha)  
+
+    return {
+        haha,
+    }
+}
+
+reactive 接收一个普通对象然后返回该普通对象的响应式代理对象
+
+setup(){
+    let obj = reactive({
+        name:"小王",
+
+        age:"19"
+    })
+
+    return {
+        obj,
+    }
+}
+
+使用{{obj.name}}
+
+更新obj[name]='xxx'
+
+const currentOilName = computed(()=>{
+        let data = store.state.user.currentUser;
+        let filed = '';
+        let value = '';
+        switch (data.userType) {
+          case 1:
+            filed = '集团账号';
+            value = "集团管理账号"
+            break;
+          case 3:
+            filed = '油站名称';
+            value = data.stationName;
+            break;
+          case 2:
+            filed = '供应商名称';
+            value = data.supplierName;
+            console.log(data.supplierName,'data.supplierName');
+            break;
+          default:
+            break;
+        }
+        return {
+          filed,
+          value,
+        }
+      })
+
+
+
+ 总结：
+ 使用了script 配置 <script lang="ts"> 采用的vue3
+
+
+<script lang="ts">
+import  导入需要引用的组件
+export default defineComponent({})  vue3构建实例的方式  
+setup() { return }  是vue3中的一个新的配置项，值为一个函数，我们在组件中用到的数据、方法等等，都要配置在setup中。   返回渲染函数 返回一个对象，中的属性和方法在模板中可以直接使用
+
+
+
+
+
+v-bind:class 简写 :class
+v-on:click 简写 @click
+
+
+<script>
+export default {
+  data() {
+    return {
+      message: '',
+      text:''
+    }
+  }
+}
+</script>
+
+常规
+<input :value="text" @input="event => text = event.target.value"/>
+简写
+<input v-model="message" placeholder="edit me" />
+
+v-model=""  绑定的数据模型
+
+
+
+深入组件
+
+Props 父子组件传递数据
+
+
+
+插槽  <slot> </slot>   具名插槽 <slot slot="header"></slot>

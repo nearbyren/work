@@ -104,3 +104,25 @@ RestTemplate Http请求工具,利用于服务之间的调用
 
 
 
+
+
+pom.xml
+
+<properties>  统一管理jar版本
+
+</properties>
+
+
+
+@Mapper
+<mapper namespace="映射mapper文件路径"></mapper>
+
+
+微服务架构 
+
+
+服务注册中心
+Eureka      x
+zookeeper   v
+consul	    v
+Nacos       v

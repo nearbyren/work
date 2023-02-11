@@ -60,12 +60,14 @@
 {
 	"advertTypeId": "1", // 1 开屏广告
 }
-7./app/index/queryStationList //油站列表
+7./app/index/queryStationList   app/index/queryStationList/v2  //油站列表
 {
 	"latitude": "22.561563",
 	"longitude": "113.948175",
 	"oilId": "1" // 油品ID 1-92 2-95 3-98
 }
+
+
 8./app/index/getIndexBanners //获取首页轮播图
 {}
 9./app/index/getIndexAlerts //获取运动首页弹窗和浮窗

@@ -1,0 +1,157 @@
+$way =        //存用户数据的标志类型 1：手机号 2：用户user_id
+$datas =  18126060019,18938844110
+$mode_type = 1 
+$push_msg_title = 
+$push_msg_content = 
+$push_behavior = {"push_type":"1","type":"ejiayou://stationList","url":"","params":"","day":"1","ad_logo":"https://img.ejiayou.com/upload/2022/7/009ba3a7-4a54-49e9-ba40-faa78edb4afa-1656655525581.jpg"}
+$filter_user_tag_ids = 
+$filter_user_tag_name = 
+$file = 
+$push_time = 
+
+
+{
+  "appPushWay":"1",
+  "appPushModeType":"1",
+  "appPushTitle":"title",
+    "appPushContent":"Content",
+      "appPushMobileIds":"18126060019,18938844110",
+    "appPushBehavior":{"appPushType":"1","appPushOptionType":"ejiayou://stationList","appPushUrl":"http:.//","appPushDay":"1"}
+}
+
+
+2122341589 
+
+
+
+
+点击测试
+
+push_msg_title	title
+user_phone	15236183971
+push_msg_content	content
+push_behavior	{"push_type":"1","type":"ejiayou://stationList","url":"","params":"","day":"1","ad_logo":"https://img.ejiayou.com/upload/2022/7/009ba3a7-4a54-49e9-ba40-faa78edb4afa-1656655525581.jpg"}
+_token	Tj03qESP75xKfDQ1aAYwzFmF6tjCW9xS1NNEcgw7
+
+
+点击修改
+id			295
+mode_type			3
+way			1
+datas			15236183971
+push_time			2022-07-01 14:08:30
+push_msg_title			title
+push_msg_content			content
+push_behavior			{"push_type":"1","type":"ejiayou://stationList","url":"","params":"","day":"1","ad_logo":"https://img.ejiayou.com/upload/2022/7/009ba3a7-4a54-49e9-ba40-faa78edb4afa-1656655525581.jpg"}
+filter_user_tag_ids			
+filter_user_tag_name			
+_token			Tj03qESP75xKfDQ1aAYwzFmF6tjCW9xS1NNEcgw7
+file	application/octet-stream	
+
+
+
+
+
+
+点击添加
+mode_type			3
+way			1
+datas			15236183971,18938844110
+push_time			2022-07-06 13:40:03
+push_msg_title			title
+push_msg_content			content
+push_behavior			{"push_type":"1","type":"ejiayou://stationList","url":"","params":"","day":"2","ad_logo":"https://img.ejiayou.com/upload/2022/7/9154593d-1b55-4508-9742-c298d59ddfac-1656913184983.jpg"}
+filter_user_tag_ids			
+filter_user_tag_name			
+_token			Tj03qESP75xKfDQ1aAYwzFmF6tjCW9xS1NNEcgw7
+file	application/octet-stream		
+
+
+
+测试提交的方式
+
+{
+"modeType":"1",                                 '数据来源 1、导入文件 2、 选择用户组 3、输入手机号 4、输入user_id'
+"way":"1",
+"datas":"18126060019,18938844110",
+"pushMsgTitle":"",
+"pushMsgContent":"",
+"pushBehavior":{
+"push_type":"1",
+"type":"ejiayou://stationList",
+"url":"http:.//",
+"params":"1",
+"day":"1",
+"ad_logo":"https://img.ejiayou.com/upload/2022/7/009ba3a7-4a54-49e9-ba40-faa78edb4afa-1656655525581.jpg"
+}
+}
+
+
+
+
+
+
+
+"stackTrace":["android.app.ApplicationPackageManager.getInstalledPackages(ApplicationPackageManager.java:1029)",
+"cn.jiguang.common.app.helper.b.b(Unknown Source:22)",
+"cn.jiguang.common.app.helper.b.a(Unknown Source:106)",
+"cn.jiguang.j.b.c(Unknown Source:14)","cn.jiguang.o.a.e(Unknown Source:31)",
+"cn.jiguang.o.a.a(Unknown Source:0)",
+"cn.jiguang.o.a$b.a(Unknown Source:15)","cn.jiguang.o.e.run(Unknown Source:9)",
+"java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:462)",
+"java.util.concurrent.FutureTask.run(FutureTask.java:266)",
+"java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:301)",
+"java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)",
+"java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)",
+"java.lang.Thread.run(Thread.java:933)"]
+
+
+
+
+
+
+
+app 接收的内容 
+
+
+ 推送测试 - > [onNotifyMessageArrived] 
+ NotificationMessage{
+ notificationId=507118432, 
+ msgId='18100221187203128', 
+ appkey='ae91fc73274f4ff4eb59b752', 
+ notificationContent='易加油', 
+ notificationAlertType=-1, 
+ notificationTitle='易加油', 
+ notificationSmallIcon='', 
+ notificationLargeIcon='', 
+ notificationExtras='{"type":"ejiayou:\/\/stationList","url":""}', 
+ notificationStyle=0, 
+ notificationBuilderId=0, 
+ notificationBigText='', 
+ notificationBigPicPath='',
+ notificationInbox='', 
+ notificationPriority=0, 
+ notificationCategory='', 
+ developerArg0='developerArg0', 
+ platform=0, 
+ notificationChannelId='', 
+ displayForeground='', 
+ notificationType=0', 
+ inAppMsgType=1', 
+ inAppMsgShowType=2', 
+ inAppMsgShowPos=0', 
+ inAppMsgTitle=, 
+ inAppMsgContentBody=, 
+ inAppType=0
+ }
+
+
+
+{"push_type":"1", "type":"ejiayou://stationList","url":"http:.//", "params":"1", "day":"1", "ad_logo":"https://img.ejiayou.com/upload/2022/7/009ba3a7-4a54-49e9-ba40-faa78edb4afa-1656655525581.jpg"}
+
+
+1.获取推送id
+2.构建推送配置
+3.创建推送job
+4.执行job 获取regid，推送消息。
+5.操作推送成功率
