@@ -4,8 +4,7 @@
         <CZB>
           <!-- <span style="color:red">
           插槽是否生效
-          </span> -->
-          <!-- <CZC></CZC> -->
+          </span>  -->
           <template v-slot:heder:obj>
             <p>{{data.obj.firstName}}</p>
           </template>
@@ -15,18 +14,21 @@
           <template v-slot:footer:obj>
             <p>我是底部{{data.obj.lastName}}</p>
           </template>
-          </CZB>
+        </CZB>
+        <CZC>
+
+        </CZC>
     </div>
 </template>
 
 <script>
 import CZB from './CZB.vue'
-// import CZC from './CZC.vue'
+import CZC from './CZC.vue'
 export default {
   name:'CZA',
   components:{
     CZB,
-    // CZC
+    CZC
   },
   data(){
     return {

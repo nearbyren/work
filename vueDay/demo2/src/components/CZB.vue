@@ -24,9 +24,9 @@ export default {
   data(){
     return {
         obj:{
-          firstName:'wang',
-          contentName:'我是你大爷',
-          lastName:"lr"
+          firstName:'我是组件B',
+          contentName:'我是组件B内容',
+          lastName:"我是组件尾巴"
         }
     }
   }

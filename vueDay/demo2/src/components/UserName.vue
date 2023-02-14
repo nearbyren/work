@@ -17,6 +17,6 @@ export default {
   <input
     type="text"
     :value="lastName"
-    @input="$emit('update:lastName2', $event.target.value)"
+    @input="$emit('update:lastName', $event.target.value)"
   />
 </template>
