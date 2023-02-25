@@ -9,6 +9,8 @@
   <a-button type="dashed">虚线按钮</a-button> -->
   <UserName v-model:first-name="first"  v-model:last-name="last"/>
   <CZA></CZA>
+  <button v-on:click="showInfo(1,2,3,4)">点击showInfo</button>
+  <input type="text" placeholder="三生三世" @keyup="infoke">
   <!-- <a-layout>
     <a-layout-header class="header">
       <div class="logo" />
@@ -103,11 +105,18 @@ export default {
     CZA,
   },
   methods:{
-    //接收HelloWorld vue外部传递过来的数据
+    //接收HelloWorld外部传递过来的数据
     addTest(title){
         this.title = title
+    },
+    showInfo(a,b,c,d){
+      console.log(a,b,c,d)
+    },
+    infoke(e){
+      console.log(e.key)
     }
   }
+
 }
 
 

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <p>我是组件C</p>
+    <div class="a">
+        <p >我是组件C</p>
     </div>
 </template>
 
@@ -14,3 +14,11 @@ export default {
   }
 }
 </script>
+
+<style>
+  .a{
+    border: 1px;
+    color: blue;
+    width: 1250px;
+  }
+</style>
