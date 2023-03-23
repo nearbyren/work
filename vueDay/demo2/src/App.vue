@@ -9,6 +9,7 @@
   <a-button type="dashed">虚线按钮</a-button> -->
   <UserName v-model:first-name="first"  v-model:last-name="last"/>
   <CZA></CZA>
+  <RHELLO></RHELLO>
   <button v-on:click="showInfo(1,2,3,4)">点击showInfo</button>
   <input type="text" placeholder="三生三世" @keyup="infoke">
   <!-- <a-layout>
@@ -89,6 +90,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import TestView from './components/TestView.vue'
 import UserName from './components/UserName.vue'
 import CZA from './components/CZA.vue'
+import RHELLO from './components/RHello.vue'
 export default {
   name: 'App',
   data(){
@@ -103,6 +105,7 @@ export default {
     TestView,
     UserName,
     CZA,
+    RHELLO,
   },
   methods:{
     //接收HelloWorld外部传递过来的数据

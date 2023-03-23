@@ -139,6 +139,17 @@ v-model=""  绑定的数据模型
 
 Props 父子组件传递数据
 
+子组件接收父组件的数据
+
+export default{
+    name:'demo',
+    props:['params1','params2']
+    setup(props){
+        console.log('setup-------------',props)
+    }
+
+}
+
 
 
 插槽  <slot> </slot>   具名插槽 <slot slot="header"></slot>
@@ -177,3 +188,57 @@ computed与watch
 最终的目标就是：这样this指向才是vm或者组件实例
 
 
+
+
+setup 关键点：
+
+1.新的配置项，值为一个函数
+2.setup是所有的composition api （组合api）
+3.组件中所用到:数据 方法等等，均需配置在setup中
+4.setup 有两种返回值：
+    4.1: 返回一个对象，则是对象中的属性，方法，在模板中可以直接使用
+    4.2:返回一个渲染函数，即是 h
+
+
+5.vue2和vue3注意点：
+    
+    5.1: vue2 配置 data methods computed 可以访问到setup的属性 方法
+    5.2: 但在setup中不能访问到vue2配置（data methods computed...）
+    5.3: 重名则setup优先
+    5.4: setup不能是一个sync函数，因为返回值不再是return对象，而是promise,模板看不到return对象中的属性。
+
+
+6.响应式数据处理 ref
+
+js 取值.value 模板读取无需.value
+
+主要是基本类型 响应式依然是Object.defineProperty()的get set完成的。
+
+对象类型主要借助了vue3.新函数 reactive  Proxy代理对象处理
+
+
+
+
+7.响应式数据处理 reactive
+    
+    处理对象类型响应式数据 主要用于对象，基本数据类型不会用
+    const 代理对象 = reactive（源对象）接收一个对象，返回一个代理对象
+    深层次的处理数据
+    内部基于es6的Proxy实现，通过代理对象操作对象内部数据进行操作
+
+reactive和ref 对比
+
+
+1.定义数据角度对比：
+    -ref定义：基本数据类型
+    -reactive：对象 或 数组类型数据
+    备注ref也可以定义对象或数组类型数据，它内部会自动通过reactive转为代理对象
+
+2.原理角度对比    
+    -ref通过object.defineProperty()的set和get来实现响应式（数据劫持）
+    -reactive通过使用Proxy来实现响应式（数据劫持），并通过Reflect{力拍的}操作源对象内部对象的数据
+
+
+3.使用角度对比
+    -ref定义的数据：操作数据需要.value，读取数据时模板中的直接读取不需要.value
+    -reative定义的数据：操作数据与读取数据：均不需要.value. 
