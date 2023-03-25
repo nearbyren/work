@@ -3,18 +3,33 @@
   <p>我是vue3开始学习{{name}}</p>
 <button @click="say()">spring</button>
 <br/>
+
+<!--演示生命周期操作-->
+<button @click="showCAA = !showCAA">切换显示</button>
+
 <!--模板使用引用组件-->
-<CAA msg="msg" age="11"/>
+<CAA v-if="showCAA">
+  <span>小程序开发</span>
+</CAA>
+
+
+
 </template>
 
 <script>
+import { ref } from 'vue'
 //引用组件 名称随意取
 import CAA from './components/CAA.vue'
+
 // import { h } from 'vue'
 // import { ref } from 'vue'
 export default {
   name: 'App',
-  components:{CAA}
+  components:{CAA},
+  setup(){
+    let showCAA = ref(true)
+    return{showCAA}
+  }
 }
 
 </script>

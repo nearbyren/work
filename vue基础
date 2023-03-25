@@ -242,3 +242,26 @@ reactive和ref 对比
 3.使用角度对比
     -ref定义的数据：操作数据需要.value，读取数据时模板中的直接读取不需要.value
     -reative定义的数据：操作数据与读取数据：均不需要.value. 
+
+
+8.watch 和 watchEffect 函数
+
+watch 需要指明监视的属性，也需要指明监视回调
+
+watchEffect 不要需要指明监视属性，监视回调中调用那个属性，就会监视那个属性
+
+watchEffect 相似  computed
+
+computed注重计算出来的值，回调函数的返回值，并且有返回值。
+
+watchEffect更注重于过程，回调函数的函数体，无须写返回值
+
+
+
+toRef toRefs 和 Ref 
+
+用法：const value = toRef(person,'name')
+
+应用：要将响应式对象中的某个属性单独提供给外部使用时。
+
+扩展：toRefs 和 toRef功能一致，创建多个ref对象需要则用toRefs
