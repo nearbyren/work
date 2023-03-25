@@ -6,12 +6,10 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
+import {  reactive } from 'vue'
 export default {
   name: 'RHELLO',
   setup(){
-
-
     let person  = reactive({
       name:"小王",
       age:"16",

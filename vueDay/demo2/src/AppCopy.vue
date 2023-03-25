@@ -8,24 +8,39 @@
 <button @click="showCAA = !showCAA">切换显示</button>
 
 <!--模板使用引用组件-->
-<CAA v-if="showCAA">
+<!-- <CAA v-if="showCAA">
   <span>小程序开发</span>
-</CAA>
-
-
+</CAA> -->
+<div>
+  <div class="row">
+    <div class="">
+        <!-- <div><a href="./about.html">about</a></div>
+        <div><a href="./home.html">home</a></div> -->
+        <router-link to="/About" active-class="active">about</router-link>
+        <br/>
+        <router-link to="/Home" active-class="active">home</router-link>
+    </div>
+  </div>
+  <div>
+    <div class="panel">
+      <router-view>
+      </router-view>
+    </div>
+  </div>
+</div>
 
 </template>
 
 <script>
 import { ref } from 'vue'
 //引用组件 名称随意取
-import CAA from './components/CAA.vue'
+// import CAA from './components/CAA.vue'
 
 // import { h } from 'vue'
 // import { ref } from 'vue'
 export default {
   name: 'App',
-  components:{CAA},
+  // components:{CAA},
   setup(){
     let showCAA = ref(true)
     return{showCAA}
