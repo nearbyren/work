@@ -7,9 +7,9 @@
     <div class="">
         <!-- <div><a href="./about.html">about</a></div>
         <div><a href="./home.html">home</a></div> -->
-        <router-link to="/About" active-class="active">about</router-link>
+        <router-link to="/About" replace active-class="active">about</router-link>
         <br/>
-        <router-link to="/Home" active-class="active">home</router-link>
+        <router-link to="/Home" replace active-class="active">home</router-link>
     </div>
   </div>
   <div>

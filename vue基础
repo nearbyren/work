@@ -273,3 +273,57 @@ toRef toRefs 和 Ref
 2.通过切换隐藏路由组件，其实就是卸载组件销毁的，需要时去挂载
 3.每个路由都有$router自己的属性，里面存储着自己的路由信息
 4.整个应用只有一个路由，通过组件$router属性获得
+
+
+
+命名路由：   标记 1 2
+ <router-link :to="{
+        name:'detail',  //标记1
+     // path:'/home/children1/children1Detail',
+          query:{
+            id:m.id,
+            title:m.title
+          }
+        }">
+          {{m.id}}-{{m.title}}
+        </router-link>
+
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes: [
+    {
+      path: "/home",
+      component:Home,
+      children:[{
+        path:'children1',
+        component:children1,
+         children:[{
+             name:'detail',//标记2
+             path:'children1Detail',
+             component:children1Detail 
+        }]
+      },{
+        path:'children2',
+        component:children2,
+       
+      }]
+    },
+    {
+        path:"/about",
+        // component:() => import("../router/About.vue")
+        component:About,
+    }
+  ],
+}); 
+
+
+replace属性 
+
+<router-link replace >
+
+控制路由跳转时操作浏览器历史记录的模式
+
+浏览器的历史记录分为两种写入方式：push和replace，push是追加历史记录，replace是替换当前记录。默认为push
+
+如何开启replace模式 router-link to="/About" replace active-class="active">about</router-link>

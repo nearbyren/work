@@ -16,10 +16,21 @@ const router = createRouter({
       children:[{
         path:'children1',
         component:children1,
-        children:[{
-          path:'children1Detail',
-          component:children1Detail 
-     }]
+         children:[{
+             name:'detail',
+             path:'children1Detail',
+            //params传递参数方式
+            //  path:'children1Detail/:id/:title',
+             component:children1Detail,
+
+             //第二种写法，将路由接收的所有params参数，以props形式传给data组件
+            //  props:true,
+             //接收参数
+             props($route){
+              return {id:$route.query.id,title:$route.query.title}
+             }
+           
+        }]
       },{
         path:'children2',
         component:children2,
