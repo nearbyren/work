@@ -295,6 +295,7 @@ const router = createRouter({
     {
       path: "/home",
       component:Home,
+      meta:{title:'标题-home'},
       children:[{
         path:'children1',
         component:children1,
@@ -327,3 +328,32 @@ replace属性
 浏览器的历史记录分为两种写入方式：push和replace，push是追加历史记录，replace是替换当前记录。默认为push
 
 如何开启replace模式 router-link to="/About" replace active-class="active">about</router-link>
+
+
+
+//缓存组件路由
+keep-alive 
+作用：让不展示的路由组件保持挂载，不被销毁
+用法：keep-alive include ='缓存组件路由'
+
+
+
+路由属性 meta:是存储路由数据来做业务处理。
+
+//前置路由与后置路由作用与用法
+
+作用：控制打开界面权限，有些角色无此功能的设置。
+
+用法：
+
+全局路由
+前置  router.beforeEach((to,from,next)=>{}))  
+后置  router.afterEach((to,from,next)=>{})) 
+
+独享路由 
+   beforeEnter((to,from,next)=>{}))  
+
+
+组件内路由
+    beforeRouteEnter(to,from,next){},
+    beforeRouteLeave(to,from,next){},

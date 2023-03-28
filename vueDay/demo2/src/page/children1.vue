@@ -29,10 +29,17 @@
 
 <script>
 // 引入路由
-import { useRouter } from 'vue-router'
+import { onBeforeRouteLeave, onBeforeRouteUpdate, useRouter } from 'vue-router'
 
 export default {
   name: 'children1',
+  beforeRouteEnter(to,from,next){
+    console.log('beforeRouteEnter@@@',to,from,next)
+    next()
+  },
+  beforeRouteLeave(to,from,next){
+    console.log('beforeRouteLeave@@@',to,from,next)
+  },
   setup(){
     //全局中引入这个方法
     const router = useRouter()
@@ -71,6 +78,7 @@ export default {
           // }
         })
     }
+    
     return {
       message,
       showPush,
