@@ -1,8 +1,9 @@
 <template>
 <div>
-<div>
-<Banner/>
-</div>
+  <div>
+  <!-- <Banner/> -->
+  <!-- <FormInput/> -->
+  </div>
   <div class="row">
     <div class="">
         <!-- <div><a href="./about.html">about</a></div>
@@ -24,9 +25,11 @@
 
 <script>
 import Banner from './page/Banner.vue'
+import FormInput from './page/FormInput.vue'
+
 export default {
   name: 'App',
-  components:{Banner}
+  components:{Banner,FormInput}
 }
 </script>
 
