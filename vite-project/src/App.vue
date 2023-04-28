@@ -1,9 +1,13 @@
 <script setup lang="ts">
-// import HelloWorld from './components/HelloWorld.vue'
-import AntButtom from './components/AntButtom.vue'
+import HelloWorld from './components/HelloWorld.vue'
+import LoadingButton from './page/LoadingButton.vue'
+import RowColView from './page/RowColView.vue'
+import LayoutVue from './page/LayoutVue.vue'
 </script>
 
 <template>
+  <div>
+  <!-- <RowColView /> -->
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -14,8 +18,9 @@ import AntButtom from './components/AntButtom.vue'
   </div>
   <!-- <HelloWorld msg="Vite + Vue" /> -->
   
-  <AntButtom />
-
+  <!-- <LoadingButton /> -->
+  <LayoutVue />
+</div>
 </template>
 
 <style scoped>
@@ -28,6 +33,7 @@ import AntButtom from './components/AntButtom.vue'
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }

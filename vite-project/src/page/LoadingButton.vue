@@ -17,16 +17,23 @@
     <a-button type="primary" shape="circle" loading />
     <a-button danger shape="round" loading />
   </a-space>
+  <a-button type="primary" shape="circle">
+    <template #icon><SearchOutlined /></template>
+  </a-button>
+  <a-divider>With Text</a-divider>
+
 </template>
+
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { PoweroffOutlined } from '@ant-design/icons-vue';
+import { SearchOutlined } from '@ant-design/icons-vue';
 
 interface DelayLoading {
   delay: number;
 }
 export default defineComponent({
-  components: { PoweroffOutlined },
+  components: { PoweroffOutlined, SearchOutlined},
   setup() {
     const iconLoading = ref<boolean | DelayLoading>(false);
     const enterIconLoading = () => {

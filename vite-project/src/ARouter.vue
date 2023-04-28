@@ -25,7 +25,7 @@
 
 <script>
 import Banner from './page/Banner.vue'
-import FormInput from './page/FormInput.vue'
+import FormInput from './page/LoadingButton.vue'
 
 export default {
   name: 'App',
